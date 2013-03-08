@@ -44,6 +44,12 @@ Session.vim
 # Temp files
 *~
 
+# Java
+.class
+.jar
+.war
+.ear
+
 # Archives
 # --------------------------------------------------------------------
 # It's better to unpack these files and commit the raw 
