@@ -1,8 +1,6 @@
 " VIM configuration
 " ===================================================================== 
-" Gracefully degrading .vimrc for use on all my different user accounts
-" on different machines with varying operating systems and in different
-" upgrade states (disregarding those that only have VI instead of VIM).
+" .vimrc for use on all my different accounts.
 "
 " Dependencies
 " ===================================================================== 
@@ -57,29 +55,19 @@ set numberwidth=1
 set wildmode=full			
 " Cycle between choices on <Tab>.
 
-if has("autocmd")
-    filetype plugin indent on
-endif
+silent! colorscheme murphy 
+" Don't know if this colorscheme exists everywhere.
 
-if has("syntax")
-    syntax on				
-    " Syntax highlighting.
-endif
+set title				
+" Display title in console title bar.
 
-if has("colorscheme")
-    silent! colorscheme desert
-    " Don't know if this colorscheme exists everywhere.
-endif
+filetype plugin indent on
 
-if has("title")
-    set title				
-    " Display title in console title bar.
-endif
+syntax on				
+" Syntax highlighting.
 
-if has("wildmenu")
-    set wildmenu				
-    " Menu completion on <Tab> in command mode. 
-endif
+set wildmenu				
+" Menu completion on <Tab> in command mode. 
 
 """ Quiet
 set noerrorbells			
@@ -90,12 +78,10 @@ set vb t_vb=
 
 """ Files to ignore while completing
 
-if has("wildignore")
-    set wildignore+=*.o,*.obj		" Executables and resources.
-    set wildignore+=*.class		" Java.
-    set wildignore+=*.pyc,*.pyo,*.egg   " Python.
-    set wildignore+=*.git,*.svn	        " Version control.
-endif
+set wildignore+=*.o,*.obj		" Executables and resources.
+set wildignore+=*.class		        " Java.
+set wildignore+=*.pyc,*.pyo,*.egg       " Python.
+set wildignore+=*.git,*.svn	        " Version control.
 
 """ Read/Write
 set noautowrite				
@@ -123,15 +109,11 @@ set smarttab
 set grepprg=ack				
 " Replace grep with ack.
 
-if has("incsearch")
-    set incsearch				
-    " Incremental search while typing.
-endif
+set incsearch				
+" Incremental search while typing.
 
-if has("hlsearch")
-    set hlsearch				
-    " Highlight search hits.
-endif
+set hlsearch				
+" Highlight search hits.
 
 """ Look and feel
 
@@ -144,44 +126,33 @@ set nowrap
 set cindent				
 " Automatically indent braces.
 
+set expandtab				
+" Get spaces instead of tabs when hitting tab in insert mode.
+" This is especially useful when you are programming python.
+
 set shiftwidth=4			
-" Indent four spaces on braces instead of VIM's default eight.
+" How many columns text is indented when hitting << or >>
+" Indents four spaces on braces instead of VIM's default eight.
 
 set softtabstop=4			
-" Each indentation level is four spaces.
-
-set expandtab				
-" Keep VIM from converting eight spaces into tabs.
+" How many columns a tab is in insert mode.
 
 set shiftround				
 " Rounds indents to a multiple of shiftwidth.
 
-if has("cursorline")
-    set cursorline				
-    " Line indicating cursor location.
-endif
+set cursorline				
+" Line indicating cursor location.
 
-if has("colorcolumn")
-    set colorcolumn=72       		
-    " Ruler on the right that is appropriate for git messages.
-    " This results in prettier git log messages and a better formatted
-    " e-mail when performing a git format-patch --stdout.
-endif
+set colorcolumn=72       		
+" Ruler on the right that is appropriate for git messages.
+" This results in prettier git log messages and a better formatted
+" e-mail when performing a git format-patch --stdout.
 
-if has("ruler")
-    set ruler				
-    " Indicate cursor position at all times.
-endif
+set ruler				
+" Indicate cursor position at all times.
 
-if has("virtualedit")
-    set virtualedit=block			
-    " Let cursor move past the last character in <C-v> mode.
-endif
-
-if has("linebreak")
-    set linebreak				
-    " Don't wrap text in the middle of a word.
-endif
+set linebreak				
+" Don't wrap text in the middle of a word.
 
 """ Messages, info and status
 
@@ -197,10 +168,8 @@ set laststatus=2
 set confirm				
 " Prompt if closing with unsaved changes.
 
-if has("showcmd")
-    set showcmd				
-    " Display incomplete normal mode commands while typing.
-    " If you add set showcmd you will see your <leader> key appear in the
-    " bottom right hand corner of vim, and you will see it disappear when
-    " timeoutlen happens (time out is 1000 ms by default).. 
-endif
+set showcmd				
+" Display incomplete normal mode commands while typing.
+" If you add set showcmd you will see your <leader> key appear in the
+" bottom right hand corner of vim, and you will see it disappear when
+" timeoutlen happens (time out is 1000 ms by default).. 
