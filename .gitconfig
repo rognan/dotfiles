@@ -1,0 +1,71 @@
+[user]
+    name = Thor Andreas Rognan
+    email = thor.rognan@gmail.com
+
+[github]
+    user = rognan
+
+[core]
+    editor = vim 
+    excludesfile = ~/.gitignore
+    autocrlf = input
+    # Convert line endings to platform input (LF on *nix, CRLF on windows).
+    # In other words, don't use this on windows. Use 'true' instead.
+    # Use a .gitattributes file in projects to avoid problems with line endings
+    # from participants on disparate platforms.
+
+[commit]
+    template = ~/.gitmessage
+
+[push]
+    default = upstream
+
+[merge]
+    tool = opendiff
+    log = true
+    # Include summaries of merged commits in merge commit messages.
+
+[rerere]
+    enabled = true
+    # Re-use recorded resolutions of conflicts.
+
+[color]
+    ui = auto
+    # Use colors in output from all commands capable of it.
+
+[alias]
+    ap = add --patch
+    # Interactively add parts of a changeset to the index. (I.e some of the changes in the file, but not all)
+
+    s = status -sb
+    # Short status output.
+
+    ls-ignored = ls-files -o -i --exclude-standard
+    # List files in repo that's .gitignored.
+
+    cp = cherry-pick -x
+    # Copy a commit with the message "Cherry picked from ...".
+
+    unstage = reset HEAD
+    # Unstage a resent git add.
+
+    uncommit  = reset --soft HEAD^
+    # Undo previous commit.
+    
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    # Formatted log output.
+    
+    count = shortlog -sn
+    # Count the number of commits per participant.
+    
+    # Convenience, because I'm lazy.
+    ls = ls-files
+    b = branch -v
+    r = remote -v
+    t = tag -l
+    ta = tag -a
+    co = checkout
+    ci = commit
+    cim = commit -m
+    ciam = commit -am
+    ri = rebase --interactive
