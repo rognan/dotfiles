@@ -51,13 +51,13 @@
 
     uncommit  = reset --soft HEAD^
     # Undo previous commit.
-    
+
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    # Formatted log output.
-    
+    # Short and readable log format with relative time.
+
     count = shortlog -sn
     # Count the number of commits per participant.
-    
+
     # Convenience, because I'm lazy.
     ls = ls-files
     b = branch -v
