@@ -1,7 +1,8 @@
 # My dots
 
-I guess it comes as no surprise that I've been gathering dots here and there, so here's a list of some of my victims:
+Feel free to comment, use and share.
 
+Some of my sources:
 * [Tim Pope](https://github.com/tpope/vim-pathogen)
 * [Mir Nazim](http://mirnazim.org/writings/vim-plugins-i-use/)
 * [Zach Holman](https://github.com/holman)
