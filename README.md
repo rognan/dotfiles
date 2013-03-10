@@ -8,5 +8,6 @@ Some of my sources:
 * [Zach Holman](https://github.com/holman)
 * [Yan Pritzker](https://github.com/skwp)
 * [GitHub ignores](https://github.com/github/gitignore), and of course [GitHub dots](http://dotfiles.github.com/)
+* [Gary Bernhardt & Corey Haines](https://github.com/garybernhardt/dotfiles/blob/master/bin/git-churn)
 
 **Thank you!**
