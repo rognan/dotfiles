@@ -58,3 +58,4 @@ alias po='popd'
 
 # Git
 alias g='git'
+alias gs='g s'
