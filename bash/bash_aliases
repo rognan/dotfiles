@@ -56,5 +56,8 @@ alias ll='ls -alGh'
 alias pu='pushd .'
 alias po='popd'
 
+# Git
+alias g='git'
+
 # Sources
 alias dev='cd ~/src'
