@@ -52,7 +52,7 @@
     uncommit  = reset --soft HEAD^
     # Undo previous commit.
 
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
     # Short and readable log format with relative time.
 
     count = shortlog -sn
