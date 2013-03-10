@@ -43,6 +43,9 @@ set lazyredraw
 set number
 " Display line numbers.
 
+set scrolloff=2
+" Always display at least 2 lines above/below the cursor.
+
 set showmatch
 " Show matching brackets when cursor is over them.
 
