@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# Written by Thor Rognan
+#
+# Put this anywhere on your $PATH (~/bin is recommended). Then git will see it
+# and you will be able to do `git stat`.
+#
+# Show statistics for entire repo:
+#   $ git stat
+#
+# (These are all standard arguments to git log).
+
+set -e
+
+git log --author="$(git config --get user.email)" --pretty=tformat: --numstat | grep -v '^$' | awk '{ add += $1 ; subs += $2 ; loc += $1 - $2 } END {printf "Lines added: %s \tLines deleted: %s \tTotal added/deleted: %s\n", add, subs, loc}' -
