@@ -7,7 +7,7 @@
 " Ack
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
-" The <leader> key is by default mapped to '\', so a mapping 'm' 
+" The <leader> key is by default mapped to '\', so a mapping 'm'
 " can be executed by typing '\m'. It's easier to hit ',' than '\'.
 " Who uses ',' anyways ...
 
@@ -27,20 +27,20 @@ augroup end
 
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
-" Load plugins (silently: missing pathogen throws errors) 
+" Load plugins (silently: missing pathogen throws errors)
 
 set tags=./tags,tags/;/
 " Tags from directory of current file, then current working directory
 " and then from '/'
 
-set nocompatible			
-" Enable VIM specific features 
+set nocompatible
+" Enable VIM specific features
 " (No longer VI compliant).
 
 set lazyredraw
 " Don't redraw while executing macros (better performance).
 
-set number				
+set number
 " Display line numbers.
 
 set showmatch
@@ -49,135 +49,135 @@ set showmatch
 set mat=2
 " The tenths of a second to blink when matching brackets.
 
-set numberwidth=1			
+set numberwidth=1
 " Line numbers in single column.
 
-set wildmode=full			
+set wildmode=full
 " Cycle between choices on <Tab>.
 
-silent! colorscheme murphy 
+silent! colorscheme murphy
 " Don't know if this colorscheme exists everywhere.
 
-set title				
+set title
 " Display title in console title bar.
 
 filetype plugin indent on
 
-syntax on				
+syntax on
 " Syntax highlighting.
 
-set wildmenu				
+set wildmenu
 " Menu completion on <Tab> in command mode. 
 
 """ Quiet
-set noerrorbells			
+set noerrorbells
 " No bells or whistles.
 
-set vb t_vb=				
+set vb t_vb=
 " No visual bell either.
 
 """ Files to ignore while completing
 
-set wildignore+=*.o,*.obj		" Executables and resources.
-set wildignore+=*.class		        " Java.
+set wildignore+=*.o,*.obj               " Executables and resources.
+set wildignore+=*.class	                " Java.
 set wildignore+=*.pyc,*.pyo,*.egg       " Python.
-set wildignore+=*.git,*.svn	        " Version control.
+set wildignore+=*.git,*.svn             " Version control.
 
 """ Read/Write
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-" This is what you specify after having an obscure whitespace bug in 
+" This is what you specify after having an obscure whitespace bug in
 " a config file. This will allow you to see characters like tabs, EOL,
 " etc.
 
 set list
 " Display the unprintable characters listed in listchars
- 
-set noautowrite				
+
+set noautowrite
 " Don't write buffer unless requested.
 
-set noautowriteall			
+set noautowriteall
 " Make VIM listen.
 
 set autoread
 " Automatically read in changes when a file changes on the filesystem.
 
-set ffs=unix,dos,mac			
+set ffs=unix,dos,mac
 " Try recognizing line endings.
 
 """ Search
-set ignorecase  			
+set ignorecase
 " Case insensitive search.
 
-set smartcase				
+set smartcase
 " Unless an upper case is used.
 
-set smarttab				
+set smarttab
 " Intelligent tab usage.
 
-set grepprg=ack				
+set grepprg=ack
 " Replace grep with ack.
 
-set incsearch				
+set incsearch
 " Incremental search while typing.
 
-set hlsearch				
+set hlsearch
 " Highlight search hits.
 
 """ Look and feel
 
-set nostartofline			
+set nostartofline
 " Try to preserve column when moving up and down.
 
-set nowrap				
+set nowrap
 " Don't wrap text.
 
-set cindent				
+set cindent
 " Automatically indent braces.
 
-set expandtab				
+set expandtab
 " Get spaces instead of tabs when hitting tab in insert mode.
 " This is especially useful when you are programming python.
 
-set shiftwidth=4			
+set shiftwidth=4
 " How many columns text is indented when hitting << or >>
 " Indents four spaces on braces instead of VIM's default eight.
 
-set softtabstop=4			
+set softtabstop=4
 " How many columns a tab is in insert mode.
 
-set shiftround				
+set shiftround
 " Rounds indents to a multiple of shiftwidth.
 
-set cursorline				
+set cursorline
 " Line indicating cursor location.
 
-set colorcolumn=72       		
+set colorcolumn=72
 " Ruler on the right that is appropriate for git messages.
 " This results in prettier git log messages and a better formatted
 " e-mail when performing a git format-patch --stdout.
 
-set ruler				
+set ruler
 " Indicate cursor position at all times.
 
-set linebreak				
+set linebreak
 " Don't wrap text in the middle of a word.
 
 """ Messages, info and status
 
-set report=0				
+set report=0
 " Print changed line count.
 
-set ls=2				
+set ls=2
 " Show status line.
 
-set laststatus=2			
+set laststatus=2
 " Show status line, even if only one window.
 
-set confirm				
+set confirm
 " Prompt if closing with unsaved changes.
 
-set showcmd				
+set showcmd
 " Display incomplete normal mode commands while typing.
 " If you add set showcmd you will see your <leader> key appear in the
 " bottom right hand corner of vim, and you will see it disappear when
-" timeoutlen happens (time out is 1000 ms by default).. 
+" timeoutlen happens (time out is 1000 ms by default).
