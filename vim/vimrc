@@ -84,6 +84,14 @@ set wildignore+=*.pyc,*.pyo,*.egg       " Python.
 set wildignore+=*.git,*.svn	        " Version control.
 
 """ Read/Write
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+" This is what you specify after having an obscure whitespace bug in 
+" a config file. This will allow you to see characters like tabs, EOL,
+" etc.
+
+set list
+" Display the unprintable characters listed in listchars
+ 
 set noautowrite				
 " Don't write buffer unless requested.
 
