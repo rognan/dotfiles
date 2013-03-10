@@ -58,6 +58,3 @@ alias po='popd'
 
 # Git
 alias g='git'
-
-# Sources
-alias dev='cd ~/src'
