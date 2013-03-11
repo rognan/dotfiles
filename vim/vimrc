@@ -25,6 +25,8 @@ augroup vimrc_reload
     endif
 augroup end
 
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 silent! call pathogen#infect()
 silent! call pathogen#helptags()
 " Load plugins (silently: missing pathogen throws errors)
