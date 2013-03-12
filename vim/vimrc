@@ -191,3 +191,13 @@ set showcmd
 " If you add set showcmd you will see your <leader> key appear in the
 " bottom right hand corner of vim, and you will see it disappear when
 " timeoutlen happens (time out is 1000 ms by default).
+
+
+" Delete trailing white space on save,
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.coffee :call DeleteTrailingWS()
