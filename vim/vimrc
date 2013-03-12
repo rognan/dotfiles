@@ -109,7 +109,10 @@ set autoread
 " Automatically read in changes when a file changes on the filesystem.
 
 set ffs=unix,dos,mac
-" Try recognizing line endings.
+" Use unix as the standard file type.
+
+set encoding=utf8
+" Use utf8 as standard encoding.
 
 """ Search
 set ignorecase
