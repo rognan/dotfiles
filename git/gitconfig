@@ -57,6 +57,9 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
     # Short and readable log format with relative time.
 
+    flog = log --graph --topo-order --decorate --oneline --first-parent
+    # Short(er) and readable log format without relative time.
+
     count = shortlog -sn
     # Count the number of commits per participant.
 
