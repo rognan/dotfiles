@@ -69,6 +69,7 @@ set title
 " Display title in console title bar.
 
 filetype plugin indent on
+" Let VIM detect filetypes
 
 syntax on
 " Syntax highlighting.
