@@ -75,7 +75,7 @@ syntax on
 " Syntax highlighting.
 
 set wildmenu
-" Menu completion on <Tab> in command mode. 
+" Menu completion on <Tab> in command mode.
 
 """ Quiet
 set noerrorbells
