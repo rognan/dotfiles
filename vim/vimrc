@@ -8,14 +8,17 @@
 " ===================================================================== 
 " Ack
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
-" The <leader> key is by default mapped to '\', so a mapping 'm'
-" can be executed by typing '\m'. It's easier to hit ',' than '\'.
-" Who uses ',' anyways ...
+
+filetype off
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+silent! call pathogen#infect()
+silent! call pathogen#helptags()
+filetype plugin indent on
+set nocompatible
 
 augroup vimrc_reload
     autocmd!
-    " When your .vimrc file is sourced twice, the autocommands will 
+    " When your .vimrc file is sourced twice, the autocommands will
     " appear twice. autocmd! removes all autocommands for the current
     " group.
 
@@ -27,31 +30,23 @@ augroup vimrc_reload
     endif
 augroup end
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
-" Load plugins (silently: missing pathogen throws errors)
-
+let mapleader=","
+set number
 set tags=./tags,tags/;/
 " Tags from directory of current file, then current working directory
 " and then from '/'
 
-set nocompatible
-" Enable VIM specific features
-" (No longer VI compliant).
-
 set lazyredraw
 " Don't redraw while executing macros (better performance).
-
-set number
-" Display line numbers.
 
 set scrolloff=2
 " Always display at least 2 lines above/below the cursor.
 
 set showmatch
 " Show matching brackets when cursor is over them.
+
+" Don't highlight lines longer than 800 characters.
+set synmaxcol=800
 
 set mat=2
 " The tenths of a second to blink when matching brackets.
@@ -68,9 +63,6 @@ silent! colorscheme murphy
 set title
 " Display title in console title bar.
 
-filetype plugin indent on
-" Let VIM detect filetypes
-
 syntax on
 " Syntax highlighting.
 
@@ -86,13 +78,17 @@ set vb t_vb=
 
 """ Files to ignore while completing
 
-set wildignore+=*.o,*.obj               " Executables and resources.
-set wildignore+=*.class	                " Java.
-set wildignore+=*.pyc,*.pyo,*.egg       " Python.
-set wildignore+=*.git,*.svn             " Version control.
+set wildignore+=*.o,*.obj,*.exe,*.dll       " Executables and resources.
+set wildignore+=*.class	                    " Java.
+set wildignore+=*.pyc,*.pyo,*.egg           " Python.
+set wildignore+=*.git,*.svn                 " Version control.
+set wildignore+=*.aux,*.out,*.toc           " LaTeX intermediate.
+set wildignore+=*.jpg,*.png,*.gif,*.jpeg    " Binary images.
+set wildignore+=*.sw?                       " VIM swaps.
+set wildignore+=*.DS_Store                  " Bullshit.
 
 """ Read/Write
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=trail:~,tab:▸\ ,eol:¬,extends:❯,precedes:❮
 " This is what you specify after having an obscure whitespace bug in
 " a config file. This will allow you to see characters like tabs, EOL,
 " etc.
@@ -187,12 +183,14 @@ set laststatus=2
 set confirm
 " Prompt if closing with unsaved changes.
 
+set ttyfast
+set history=1000
+
 set showcmd
 " Display incomplete normal mode commands while typing.
 " If you add set showcmd you will see your <leader> key appear in the
 " bottom right hand corner of vim, and you will see it disappear when
 " timeoutlen happens (time out is 1000 ms by default).
-
 
 " Delete trailing white space on save,
 func! DeleteTrailingWS()
