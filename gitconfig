@@ -1,11 +1,6 @@
-# ~/.gitconfig
-
-[user]
-    name = Thor Andreas Rognan
-    email = thor.rognan@gmail.com
-
-[github]
-    user = rognan
+[include]
+    path = .gitconfig-user
+    # Include user specific information
 
 [core]
     editor = vim 

@@ -1,0 +1,89 @@
+#!/bin/sh
+# Back up existing, and install new dotfiles
+# Tested once on OS X 10.8 - good luck ;)
+
+set -e
+set -u
+
+cwd=$(pwd)
+backup_dir="${HOME}/backup/dotfiles"
+target_dir="${HOME}"
+archive=$(date +%Y%m%d)"_dotfiles.tar.gz"
+excludes="($0|osx|\.md|\.txt|\.sh)"
+
+symlink_names() {
+    # dot it if it's in the root directory
+    [[ -f $1 && $(basename $1) = $1 ]] && echo "${target_dir}/.$1" && return 0
+
+    # Do not dot it if it is a directory.
+    # Exemptions made for directories which will not be traversed.
+    case $1 in
+        vim) echo ${target_dir}/.$1 ;;
+        *) find $1 -type f -exec echo "${target_dir}/{}" \; ;;
+    esac
+}
+
+dotsources() {
+    for i in *; do echo "${i}"; done | egrep -v ${excludes}
+}
+
+dotfiles() {
+    for dot_source in $(dotsources); do echo $(symlink_names "${dot_source}"); done
+}
+
+existing_dotfiles() {
+    for i in $(dotfiles); do [ -e "${i}" ] && echo "${i}"; done
+}
+
+dotbackup() {
+    mkdir -p ${backup_dir}
+
+    tar -C ${target_dir} -czf ${backup_dir}/${archive} $(existing_dotfiles) || return 0
+}
+
+dotdelete() {
+    $(dotbackup)
+
+    for i in $(existing_dotfiles); do rm -rf "${i}"; done
+}
+
+ensure_directories() {
+    for potential_dir in $(dotfiles); do
+        dir=$(dirname ${potential_dir})
+
+        if [[ ${dir} != "." ]]; then
+            mkdir -p ${dir}
+        fi
+    done
+}
+
+link_them() {
+    for dot_source in $(dotsources); do
+        target=$(symlink_names ${dot_source})
+        for symlink in ${target}; do
+            ln -s ${cwd}/${dot_source} ${symlink}
+        done
+    done
+}
+
+dotlink() {
+    $(dotdelete)
+    $(ensure_directories)
+    $(link_them)
+}
+
+usage() {
+    echo "Usage: 'sh $0 <install|backup>'"
+    exit 1
+}
+
+[[ $# != 1 ]] && usage
+
+case $1 in
+    install)
+        $(dotlink) ;;
+    backup)
+        $(dotbackup) ;;
+    *)
+        echo $(usage) ;;
+esac

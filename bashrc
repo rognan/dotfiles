@@ -36,7 +36,7 @@ if [[ -f ~/.bash_aliases ]]; then source ~/.bash_aliases; fi
 if [[ -f ~/.bash_functions ]]; then source ~/.bash_functions ; fi
 
 # non-public aliases. I put shortcuts to local git repo's here.
-if [[ -f ~/.bash_aliases_np ]]; then source ~/.bash_aliases_np; fi
+if [[ -f ~/.bash_aliases.private ]]; then source ~/.bash_aliases.private; fi
 
 # developer prompt
 export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
