@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # This is by and large a copy of:
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
@@ -10,19 +10,19 @@ sudo -v
 # Sudo Keep Alive: update `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set computer name in various contexts
+# Set computer name
 sudo scutil --set ComputerName tarmac
 sudo scutil --set HostName tarmac
 sudo scutil --set LocalHostName tarmac
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "tarmac"
 
-# Expand save panel by default
+# Expand save panel
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-# Expand print panel by default
+# Expand print panel
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 
-# Save to disk (not iCloud) by default
+# Save to disk (not iCloud)
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
 # Automatically quit printer app once the print jobs complete
@@ -38,7 +38,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 # Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
+# (i.e. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Disable press-and-hold for keys in favor of key repeat
@@ -99,9 +99,6 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
 
-# Prevent Safari from opening ‘safe’ files automatically after downloading
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-
 # Enable the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
@@ -132,4 +129,4 @@ defaults write com.apple.dashboard devmode -bool true
 # Enable the WebKit Developer Tools in the Mac App Store
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
-echo 'OSX Hacks Done. Some of these changes require a restart to take effect.'
+echo 'Configuration changed. Restart for all changes to take effect.
