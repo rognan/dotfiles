@@ -9,7 +9,7 @@ cwd=$(pwd)
 backup_dir="${HOME}/backup/dotfiles"
 target_dir="${HOME}"
 archive=$(date +%Y%m%d)"_dotfiles.tar.gz"
-includes="(^bash*|^git*|^vim*|bin)"
+includes="(^bash*|^git*|^vim*|^bin$)"
 
 symlink_names() {
     # dot it if it's in the root directory
@@ -77,7 +77,6 @@ usage() {
     exit 1
 }
 
-echo $(dotsources)
 [[ $# != 1 ]] && usage
 
 case $1 in
