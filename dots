@@ -74,6 +74,7 @@ dotlink() {
 
 usage() {
     echo "Usage: 'sh $0 <install|backup>'"
+    echo "Consider including 'curl -L get.yeoman.io | sh' to this setup"
     exit 1
 }
 
