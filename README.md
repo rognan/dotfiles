@@ -8,10 +8,7 @@ I manage my dotfiles in a separate directory ```~/src/dotfiles```, and
 everything is *soft linked* to their proper location like this:
 
 ```sh
-    ln -s ~/src/dotfiles/vim ~/.vim
-    ln -s ~/src/dotfiles/vim/vimrc ~/.vimrc
     ln -s ~/src/dotfiles/bash/bashrc ~/.bashrc
-    ln -s ~/src/dotfiles/bash/bash_aliases ~/.bash_aliases
     ...
 ```
 
