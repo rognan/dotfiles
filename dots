@@ -1,13 +1,6 @@
 #!/bin/sh
 #
-# Backs up existing files and folders
-# Symlinks whitelisted files and folders into users $HOME
-#
-# inventory of new files and folders
-# backup existing real files and folders
-# delete existing files
-# link files and folders to be linked
-# copy files and folders to be copied
+# Backs up existing files and folders and then symlinks files into $HOME
 
 set -e
 set -u
