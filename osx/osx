@@ -10,12 +10,6 @@ sudo -v
 # Sudo Keep Alive: update `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Set computer name
-sudo scutil --set ComputerName tarmac
-sudo scutil --set HostName tarmac
-sudo scutil --set LocalHostName tarmac
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "tarmac"
-
 # Expand save panel
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
@@ -129,4 +123,17 @@ defaults write com.apple.dashboard devmode -bool true
 # Enable the WebKit Developer Tools in the Mac App Store
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 
-echo 'Configuration changed. Restart for all changes to take effect.
+# Set computer name
+old_computer_name=`sudo scutil --get ComputerName`
+
+read -p "Computer Name (${old_computer_name}): " computer_name
+if [ -z ${computer_name} ]; then
+    computer_name=${old_computer_name}
+fi
+
+sudo scutil --set ComputerName ${computer_name}
+sudo scutil --set HostName ${computer_name}
+sudo scutil --set LocalHostName ${computer_name}
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${computer_name}"
+
+echo 'Configuration changed. Restart for all changes to take effect.'
