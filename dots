@@ -61,21 +61,23 @@ run() {
 	
 	# Symlink all dotfiles that should be directly in $HOME
 	for df in $(sources $ldfiles); do
-		if [[ -d $HOME/.$df ]]; then
-			echo "\$(rm -rf $HOME/.$df/)">>${cmd_file}
-		else
-			echo "\$(rm -f $HOME/.$df)">>${cmd_file}
-		fi
-		echo "\$(ln -sf $src_dir/$df $HOME/.$df)">>${cmd_file}
+            if [[ -d $HOME/.$df ]]; then
+                echo "\$(rm -rf $HOME/.$df/)">>${cmd_file}
+            else
+                echo "\$(rm -f $HOME/.$df)">>${cmd_file}
+            fi
+            echo "\$(ln -sf $src_dir/$df $HOME/.$df)">>${cmd_file}
 	done
 
 	# Symlink all dotfiles that should be inside a sub-directory of $HOME
 	for sdir in $(sources $linside); do 
-		sdf=$(find $sdir -type f 2>/dev/null -exec echo "{}" \;)
-		for sf in $sdf; do 
-			echo "\$(rm -f $HOME/$sf)">>${cmd_file}
-			echo "\$(ln -sf $src_dir/$sf $HOME/$sf)">>${cmd_file}
-		done
+            sdf=$(find $sdir -type f 2>/dev/null -exec echo "{}" \;)
+            for sf in $sdf; do
+                target=$(dirname $HOME/$sf)
+                echo "\$(rm -f $HOME/$sf)">>${cmd_file}
+                echo "\$(mkdir -p ${target})">>${cmd_file}
+                echo "\$(ln -sf $src_dir/$sf $HOME/$sf)">>${cmd_file}
+            done
 	done
 }
 
@@ -100,7 +102,7 @@ echo "set -u">>${cmd_file}
 echo "">>${cmd_file}
 $(run)
 
-[[ ($# = 1) && ($1 == '-f') ]] && $(sh ${cmd_file}) && exit 0
+[[ ($# = 1) && ($1 == '--force') ]] && $(sh ${cmd_file}) && exit 0
 
 printf "\n%s\n\n" "This is the script I plan to run:"
 cat ${cmd_file}
