@@ -87,7 +87,7 @@ cd ${src_dir}
 # Let's not overwrite an existing file with content.
 if [ -s ${cmd_file} ]
 then 
-	echo 'Halting run of $0 because ${cmd_file} exists and is not empty' 
+	echo "Halting run of $0 because ${cmd_file} exists and is not empty"
 	exit 0
 fi
 
