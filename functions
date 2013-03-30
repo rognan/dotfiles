@@ -1,0 +1,3 @@
+function has() {
+    return $( which $1 >/dev/null )
+}

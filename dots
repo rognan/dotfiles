@@ -27,7 +27,7 @@ now=$(date +%Y-%m-%dT%H.%M)
 src_dir=$(dirname $(abspath $0))
 
 # Files to dot and link up in $HOME
-ldfiles="(bash|git|vim)"
+ldfiles="(bash|functions|git|vim)"
 
 # Folders to link content into in the correct places
 linside="(^bin$)"
