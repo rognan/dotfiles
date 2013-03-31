@@ -51,3 +51,6 @@ if [[ -f ~/.bash_aliases.private ]]; then source ~/.bash_aliases.private; fi
 if has __git_ps1; then
     export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
 fi
+
+# boxen environment
+[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
