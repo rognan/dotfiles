@@ -1,5 +1,5 @@
 [include]
-    path = .gitconfig-user
+    path = ~/.gitconfig-user
     # Include user specific information
 
 [core]
