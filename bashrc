@@ -33,10 +33,19 @@ fi
 # add ~/bin to path
 PATH=$HOME/bin:$PATH
 
-# git completion
-if has brew; then
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then 
+# prompt
+export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
+
+# bash completion
+if has brew ; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
         source $(brew --prefix)/etc/bash_completion
+    fi
+
+    if [ -f $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh ]; then
+        source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+        # developer prompt
+        export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
     fi
 fi
 
@@ -46,11 +55,6 @@ if [[ -f ~/.bash_functions ]]; then source ~/.bash_functions ; fi
 
 # non-public aliases. I put shortcuts to local git repo's here.
 if [[ -f ~/.bash_aliases.private ]]; then source ~/.bash_aliases.private; fi
-
-# developer prompt
-if has __git_ps1; then
-    export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
-fi
 
 # boxen environment
 [ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
