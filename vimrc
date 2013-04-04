@@ -109,6 +109,7 @@ set ffs=unix,dos,mac
 " Use unix as the standard file type.
 
 set encoding=utf8
+set fileencoding=utf8
 " Use utf8 as standard encoding.
 
 """ Search
