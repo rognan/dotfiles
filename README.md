@@ -9,7 +9,6 @@ everything is *soft linked* to their proper location like this:
 
 ```sh
     ln -s ~/src/dotfiles/bash/bashrc ~/.bashrc
-    ...
 ```
 
 ## Other dots
