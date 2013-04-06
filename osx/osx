@@ -126,6 +126,15 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 # 24 hour menu bar clock with date
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d HH:mm"
 
+# Turn on firewall
+defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
+# Allow signed applications through the firewall
+defaults write /Library/Preferences/com.apple.alf allowsignedenabled -int 1
+
+# Enable firewall stealth mode
+defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
+
 # Set computer name
 old_computer_name=`sudo scutil --get ComputerName`
 
