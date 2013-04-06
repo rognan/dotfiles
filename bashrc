@@ -2,7 +2,7 @@
 # ~/.bashrc
 ###############################################################
 if [ -f ~/.functions ]; then
-    source ~/.functions
+    . ~/.functions
 fi
 
 # set bash editor to vim
@@ -39,22 +39,22 @@ export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; el
 # bash completion
 if has brew ; then
     if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        source $(brew --prefix)/etc/bash_completion
+        . $(brew --prefix)/etc/bash_completion
     fi
 
-    if [ -f $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh ]; then
-        source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+    if [ -f $(brew --prefix git)/share/git-core/contrib/completion/git-prompt.sh ]; then
+        . $(brew --prefix git)/share/git-core/contrib/completion/git-prompt.sh
         # developer prompt
         export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
     fi
 fi
 
 # aliases and functions
-if [[ -f ~/.bash_aliases ]]; then source ~/.bash_aliases; fi
-if [[ -f ~/.bash_functions ]]; then source ~/.bash_functions ; fi
+if [[ -f ~/.bash_aliases ]]; then . ~/.bash_aliases; fi
+if [[ -f ~/.bash_functions ]]; then . ~/.bash_functions ; fi
 
 # non-public aliases. I put shortcuts to local git repo's here.
-if [[ -f ~/.bash_aliases.private ]]; then source ~/.bash_aliases.private; fi
+if [[ -f ~/.bash_aliases.private ]]; then . ~/.bash_aliases.private; fi
 
 # boxen environment
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
+[ -f /opt/boxen/env.sh ] && . /opt/boxen/env.sh
