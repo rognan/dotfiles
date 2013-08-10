@@ -43,6 +43,27 @@ Session.vim
 
 # Temp files
 *~
+*.nib
+
+# Build files
+build/
+
+# User-specific XCode 3 and 4 files
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+*.xcodeproj/ !*.xcodeproj/project.pbxproj
+
+# Whitelist defaults needed for some projects
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
 
 # Java
 .class
