@@ -47,6 +47,7 @@ alias killvpn='sudo killall -9 racoon'
 
 # Yes, I'm lazy
 alias mci='mvn clean install'
+alias mwd='mvn weblogic:deploy'
 alias cuke='cucumber features'
 alias h='history'
 alias j='jobs -l'
@@ -59,3 +60,9 @@ alias po='popd'
 # Git
 alias g='git'
 alias gs='g s'
+
+# Resume wget by default
+alias wget='wget -c'
+
+# Rake
+alias be='rake exec'
