@@ -11,6 +11,9 @@ export EDITOR=/usr/bin/vim
 # complex command, or when you hit 'fc' (fix command) to open the previous
 # command in your editor.
 
+# Set current directory in the header of the shell
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
 # rbenv
 if has rbenv; then
     eval "$(rbenv init -)";
@@ -45,7 +48,8 @@ if has brew ; then
     if [ -f $(brew --prefix git)/share/git-core/contrib/completion/git-prompt.sh ]; then
         . $(brew --prefix git)/share/git-core/contrib/completion/git-prompt.sh
         # developer prompt
-        export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
+        export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]ಠ_ಠ"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
+        #export PS1='\[\033[01;30m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
     fi
 fi
 
