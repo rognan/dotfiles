@@ -23,6 +23,10 @@ Icon
 *.iws
 .idea/
 
+# Intellij IDEA plugins
+# --------------------------------------------------------------------
+atlassian-ide-plugin.xml
+
 # Sublime Text 2
 # --------------------------------------------------------------------
 *.sublime-workspace
