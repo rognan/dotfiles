@@ -74,4 +74,5 @@
     protocol = https
 
 [credential]
+        #helper = osxkeychain
 	helper = cache --timeout=3600
