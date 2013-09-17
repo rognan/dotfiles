@@ -17,6 +17,7 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 # Python path (needed for python 2.x)
 export PYTHONPATH=/opt/boxen/homebrew/lib/python2.7/site-packages:$PYTHONPATH
 
+PATH=/usr/local/opt/ruby/bin:$PATH
 # rbenv
 if has rbenv; then
     eval "$(rbenv init -)";
@@ -28,7 +29,7 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export JDK_HOME=$(/usr/libexec/java_home)
 
 # maven 
-export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=128m -Xmx1024m"
+export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m"
 
 # gradle
 if has brew; then
