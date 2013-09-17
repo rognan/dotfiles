@@ -4,7 +4,7 @@
 
 [core]
     editor = vim 
-    excludesfile = /opt/boxen/config/git/gitignore
+    excludesfile = ~/gitignore
     autocrlf = input
     # Convert line endings to platform input (LF on *nix, CRLF on windows).
     # In other words, don't use this on windows. Use 'true' instead.
@@ -73,6 +73,5 @@
 [hub]
     protocol = https
 
-[credential]
 [credential]
 	helper = cache --timeout=3600
