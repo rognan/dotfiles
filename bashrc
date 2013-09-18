@@ -14,10 +14,8 @@ export EDITOR=/usr/bin/vim
 # Set current directory in the header of the shell
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
-# Python path (needed for python 2.x)
-export PYTHONPATH=/opt/boxen/homebrew/lib/python2.7/site-packages:$PYTHONPATH
-
 PATH=/usr/local/opt/ruby/bin:$PATH
+
 # rbenv
 if has rbenv; then
     eval "$(rbenv init -)";
@@ -63,6 +61,3 @@ if [[ -f ~/.bash_functions ]]; then . ~/.bash_functions ; fi
 
 # non-public aliases. I put shortcuts to local git repo's here.
 if [[ -f ~/.bash_aliases.private ]]; then . ~/.bash_aliases.private; fi
-
-# boxen environment
-[ -f /opt/boxen/env.sh ] && . /opt/boxen/env.sh
