@@ -43,7 +43,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Colorize the cat command output
-# First: sudo easy_install Pygments
+# First: sudo pip install Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
 
 # I always forget how to do this.
