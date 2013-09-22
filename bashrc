@@ -56,7 +56,10 @@ fi
 
 # aliases and functions
 if [[ -f ~/.bash_aliases ]]; then . ~/.bash_aliases; fi
+if [[ -f ~/.bash_aliases.private ]]; then . ~/.bash_aliases.private; fi
 if [[ -f ~/.bash_functions ]]; then . ~/.bash_functions ; fi
 
-# non-public aliases. I put shortcuts to local git repo's here.
-if [[ -f ~/.bash_aliases.private ]]; then . ~/.bash_aliases.private; fi
+# z jumping
+if has brew ; then
+    source `brew --prefix`/etc/profile.d/z.sh
+fi
