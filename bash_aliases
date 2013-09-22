@@ -42,6 +42,10 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+# Colorize the cat command output
+# First: sudo easy_install Pygments
+alias ccat='pygmentize -O style=monokai -f console256 -g'
+
 # I always forget how to do this.
 alias killvpn='sudo killall -9 racoon'
 
