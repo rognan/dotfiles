@@ -44,7 +44,7 @@ alias fgrep='fgrep --color=auto'
 
 # Colorize the cat command output
 # First: sudo easy_install Pygments
-alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias c='pygmentize -O style=monokai -f console256 -g'
 
 # I always forget how to do this.
 alias killvpn='sudo killall -9 racoon'
