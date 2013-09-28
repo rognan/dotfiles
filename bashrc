@@ -40,7 +40,7 @@ PATH=$HOME/bin:$PATH
 
 # prompt
 # ツ ✗ ಠ_ಠ
-export PS1='\[\033[01;32m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
+export PS1='\[\033[1;33m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]✗"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
 
 # bash completion
 if has brew ; then
@@ -50,7 +50,7 @@ if has brew ; then
 
     if [ -f $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh ]; then
         source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
-        export PS1='\[\033[01;37m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]ಠ_ಠ"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
+        export PS1='\[\033[1;33m\]\t `if [ $? = 0 ]; then echo "\[\033[01;32m\]ツ"; else echo "\[\033[01;31m\]ಠ_ಠ"; fi` \[\033[00;32m\]\h\[\033[00;37m\]:\[\033[31m\]$(__git_ps1 "(%s)\[\033[01m\]")\[\033[00;34m\]\w\[\033[00m\][\j]\$ '
     fi
 fi
 
