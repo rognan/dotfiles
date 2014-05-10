@@ -51,6 +51,8 @@ alias killvpn='sudo killall -9 racoon'
 
 # Yes, I'm lazy
 alias mci='mvn clean install'
+alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
+alias mcc='mvn clean compile'
 alias mwd='mvn weblogic:deploy'
 alias cuke='cucumber features'
 alias h='history'
@@ -69,4 +71,8 @@ alias gs='g s'
 alias wget='wget -c'
 
 # Rake
-alias be='rake exec'
+alias brake='bundle exec rake'
+
+# Java
+alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0)'
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)'
