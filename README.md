@@ -1,19 +1,18 @@
-# My dots
-
-Feel free to comment, use and share.
-
-## A note about my setup
+# dots
 
 I manage my dotfiles in a separate directory ```~/src/dotfiles```, and
-everything is *soft linked* to their proper location like this:
+everything is soft linked to their proper location like this:
 
 ```sh
     ln -s ~/src/dotfiles/bash/bashrc ~/.bashrc
 ```
 
-## Other dots
+Feel free to copy.
 
-Thanks to...
+## Thanks to...
+
+* [gf3](https://github.com/gf3/dotfiles)
+* [Paul Irish](https://github.com/paulirish/dotfiles/)
 * [Tim Pope](https://github.com/tpope/vim-pathogen)
 * [Mir Nazim](http://mirnazim.org/writings/vim-plugins-i-use/)
 * [Zach Holman](https://github.com/holman)
