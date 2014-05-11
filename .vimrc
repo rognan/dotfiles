@@ -1,13 +1,8 @@
 " ~/.vimrc
 "
-" VIM configuration
-" ===================================================================== 
-" .vimrc for use on all my different accounts.
+" Dependencies:
+" - ack
 "
-" Dependencies
-" ===================================================================== 
-" Ack
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim

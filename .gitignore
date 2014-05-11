@@ -1,64 +1,69 @@
 # ~/.gitignore
-# --------------------------------------------------------------------
+*~
 
+# dotfiles
+.extra
 
-# OS X
-# --------------------------------------------------------------------
+# User history (sensitive information)
+.netrwhist
+
+# Thumbnails
+._*
+
+# VIM
+.*.sw?
+*.un~
+Session.vim
+
+# Sublime Text
+*.sublime-*
+
+# OSX
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
 
-# Thumbnails
-._*
+# iOS
+*.nib
 
-# Linux
-# --------------------------------------------------------------------
-*~
+# User-specific XCode 3 and 4 files
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+*.xcodeproj/ !*.xcodeproj/project.pbxproj
+
+# Whitelist defaults needed for some projects
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
 
 # Intellij IDEA
-# --------------------------------------------------------------------
 *.iml
 *.ipr
 *.iws
-.idea/
-
-# Jira plugin
+.idea
 atlassian-ide-plugin.xml
 
-# Sublime Text 2
-# --------------------------------------------------------------------
-*.sublime-workspace
+# Build files
+/build
 
-# VIM
-# --------------------------------------------------------------------
-
-# Swap files
-.*.sw?
-
-# Persistent undo files (since 7.3)
-*.un~
-
-Session.vim
-
-# User history (sensitive information)
-.netrwhist
-
-# Temp files
-*~
-
-# Java
+# Java / Maven
 .class
 .jar
 .war
 .ear
-
-# Maven
 target/
 
 # Archives
 # --------------------------------------------------------------------
-# It's better to unpack these files and commit the raw 
+# It's better to unpack these files and commit the raw
 # source because git has its own built in compression methods.
 *.7z
 *.jar

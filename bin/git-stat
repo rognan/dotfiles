@@ -1,7 +1,5 @@
 #!/bin/bash
 #
-# Written by Thor Rognan
-#
 # Put this anywhere on your $PATH (~/bin is recommended). Then git will see it
 # and you will be able to do `git stat`.
 #
