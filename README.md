@@ -1,8 +1,9 @@
 # dotfiles
 
-## Install
+## Installation
+
 ```sh
-ln -s ~/src/dotfiles/bash/bashrc ~/.bashrc
+./sync.sh
 ```
 
 Feel free to use, copy and share.
