@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Display amount of free and used memory in the system
+
+set -e
+set -u
 
 FREE_BLOCKS=$(vm_stat | awk '/free:/ { print $3 }' | sed 's/\.//')
 INACTIVE_BLOCKS=$(vm_stat | awk '/inactive:/ { print $3 }' | sed 's/\.//')
