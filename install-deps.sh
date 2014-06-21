@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -u
 
 # homebrew
 ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go/install)
