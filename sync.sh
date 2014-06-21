@@ -8,8 +8,25 @@ cd "$(dirname "$0")"
 #git pull origin master
 
 function syncDots() {
-    rsync --exclude ".git/" --exclude ".DS_Store" --exclude "sync.sh" \
-    --exclude "README.md" --exclude "LICENSE" -avh . ~
+    case $(uname -s) in
+        Darwin)
+            rsync \
+            --exclude ".git/" --exclude ".gitmodules" --exclude ".DS_Store" \
+            --exclude "sync.sh" --exclude "install-deps.sh" --exclude "osx/" \
+            --exclude "README.md" --exclude "LICENSE" \
+            -avh . ~
+        ;;
+        Linux)
+            rsync --exclude "bin/free" \
+            --exclude ".git/" --exclude ".gitmodules" --exclude ".DS_Store" \
+            --exclude "sync.sh" --exclude "install-deps.sh" --exclude "osx/" \
+            --exclude "README.md" --exclude "LICENSE" \
+            -avh . ~
+        ;;
+        *) echo "Unknown platform detected. Aborting sync ..."
+        ;;
+    esac
+
     source ~/.bash_profile
 }
 

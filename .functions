@@ -1,29 +1,15 @@
 # ~/.functions
 
-# more readable if checks
-function has() {
-    return $( which $1 >/dev/null )
-}
-
 # Reverse lookup of ip address.
 function rlookup() {
-    if [[ -z $1 ]]; then echo 'Usage: rlookup <ip address>'; return 1; fi
+    if [[ -z "${1+x}" ]]; then echo 'Usage: rlookup <ip address>'; return 1; fi
 
-    dig -x $1 +short
+    dig -x "$1" +short
 }
 
 # Create and enter directory.
 function md() {
-    mkdir -p "$@" && cd "$@"
-}
-
-# Step into the folder currently in the forefront of Finder.
-# Currently available only for OS X.
-cdf() {  # short for cdfinder
-    case $(uname -s) in
-        Darwin) cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`";;
-        *) echo 'Currently not available on this system.';;
-    esac
+    mkdir -vp "$@" && cd "$@"
 }
 
 # Extract compressed archives.
@@ -50,17 +36,3 @@ extract() {
         echo "'$1' is not a valid file!"
     fi
 }
-
-# git log with per-commit cmd-clickable GitHub URLs (iTerm)
-function gf() {
-  local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
-  [[ "$remote" ]] || return
-  local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
-  git log $* --name-status --color | awk "$(cat <<AWK
-    /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
-    /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
-    /.*/ {print \$0}
-AWK
-  )" | less -F
-}
-

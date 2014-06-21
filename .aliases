@@ -25,6 +25,9 @@ alias headerc='curl -I --compress'
 # Continue getting a partially-downloaded file.
 alias wget='wget -c'
 
+# Resume wget by default
+alias wget='wget -c'
+
 # Get rid of 'command not found'
 alias cd..='cd ..'
 
@@ -33,11 +36,11 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 
-# Show me files matching $1
-alias lsg='ls -alGh | grep'
-
 # Make parents, and be verbose
 alias mkdir='mkdir -pv'
+
+# Humanize output of df
+alias df='df -h'
 
 # Colorize the grep command output (good for reading log files)
 alias grep='grep --color=auto'
@@ -48,36 +51,54 @@ alias fgrep='fgrep --color=auto'
 # Pre-requisite: sudo pip install Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
 
-# I always forget how to do this.
-alias killvpn='sudo killall -9 racoon'
+# Gradle
+alias gb='gradle build --daemon'
 
-#
+# Maven
 alias mci='mvn clean install'
 alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
 alias mcc='mvn clean compile'
-alias mwd='mvn weblogic:deploy'
+
+# Rake
+alias brake='bundle exec rake'
+
+# Cucumber
 alias cuke='cucumber features'
-alias h='history'
+
 alias j='jobs -l'
-alias l='ls -GF'
-alias ls='ls -GF'
-alias ll='ls -alGh'
 alias pu='pushd .'
 alias po='popd'
-alias df='df -h'
-alias gb='gradle build --daemon'
-alias spotify='osascript ~/code/SpotifyControl/SpotifyControl.scpt'
 
 # Git
 alias g='git'
 alias gs='g s'
 
-# Resume wget by default
-alias wget='wget -c'
+# Platform dependent aliases
+case $(uname -s) in
+    Darwin)
+        alias spotify='osascript ~/code/SpotifyControl/SpotifyControl.scpt'
 
-# Rake
-alias brake='bundle exec rake'
+        # Java
+        alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0)'
+        alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)'
 
-# Java
-alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0)'
-alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)'
+        # I always forget how to do this.
+        alias killvpn='sudo killall -9 racoon'
+
+        # Show me files matching $1
+        alias lsg='ls -alGh | grep'
+
+        alias l='ls -GF'
+        alias ls='ls -GF'
+        alias ll='ls -alGh'
+    ;;
+    Linux)
+        # Show me files matching $1
+        alias lsg='ls -alh --color | grep'
+
+        alias l='ls -F --color'
+        alias ls='ls -F --color'
+        alias ll='ls -alh --color'
+    ;;
+    *) ;;
+esac
