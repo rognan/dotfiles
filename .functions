@@ -24,9 +24,9 @@ function nameswap() {
         return
     fi
 
-    local tmp="tmp.$1"
+    local tmp=$(mktemp $(dirname "$1")/XXXXXX)
 
-    mv "$1" tmp && mv "$2" "$1" && mv tmp "$2"
+    mv "$1" "$tmp" && mv "$2" "$1" && mv "$tmp" "$2"
 }
 
 # Extract compressed archives.
