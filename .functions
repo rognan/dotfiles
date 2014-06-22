@@ -15,13 +15,13 @@ function md() {
 # Swap filenames for two files
 function nameswap() {
     if [ $# -ne 2 ]; then
-        echo "Too many arguments: " @
-        exit 65 # Bad arguments
+        echo "This function takes two arguments only."
+        return
     fi
 
     if [ ! -f "$1" -o ! -f "$2" ]; then
-        echo "One of the files to swap does not exist: " @
-        exit 65 # Bad argument(s)
+        echo "One or both of the arguments is not a file."
+        return
     fi
 
     local tmp="tmp.$1"
