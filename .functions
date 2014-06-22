@@ -12,6 +12,23 @@ function md() {
     mkdir -vp "$@" && cd "$@"
 }
 
+# Swap filenames for two files
+function nameswap() {
+    if [ $# -ne 2 ]; then
+        echo "Too many arguments: " @
+        exit 65 # Bad arguments
+    fi
+
+    if [ ! -f "$1" -o ! -f "$2" ]; then
+        echo "One of the files to swap does not exist: " @
+        exit 65 # Bad argument(s)
+    fi
+
+    local tmp="tmp.$1"
+
+    mv "$1" tmp && mv "$2" "$1" && mv tmp "$2"
+}
+
 # Extract compressed archives.
 extract() {
     if [[ -f "$1" ]]; then
