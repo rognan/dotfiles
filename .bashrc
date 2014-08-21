@@ -22,9 +22,23 @@ if $(which rbenv >/dev/null); then
     eval "$(rbenv init -)";
 fi
 
+# :'(
 case $(uname -s) in
+    Linux)
+        if [ -f /etc/bash_completion ]; then
+            . /etc/bash_completion
+        fi
+
+        if [ -f /etc/bash_completion.d/git-prompt ]; then
+            . /etc/bash_completion.d/git-prompt
+        fi
+
+        if [ -f ~/.ext-lib/z-directory-jumper/z.sh ]; then
+            . ~/.ext-lib/z-directory-jumper/z.sh
+        fi
+    ;;
+
     Darwin)
-        # :'(
         if $( which brew >/dev/null ); then
             # bash completion
             if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -44,5 +58,6 @@ case $(uname -s) in
     ;;
     *) echo 'Platform unrecognized: Could not install [bash_completion, git-prompt, z directory jumping].';;
 esac
+
 
 # Everything ends
