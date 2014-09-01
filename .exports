@@ -30,9 +30,17 @@ export HISTTIMEFORMAT
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # dev config
-export JAVA_HOME=$(/usr/libexec/java_home)
-export JDK_HOME=$(/usr/libexec/java_home)
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
+case $(uname -s) in
+    Darwin)
+        export JAVA_HOME=$(/usr/libexec/java_home)
+        export JDK_HOME=$(/usr/libexec/java_home)
+        export GROOVY_HOME=/usr/local/opt/groovy/libexec
+    ;;
+    *)
+        echo 'Not exporting JAVA_HOME, JDK_HOME, GROOVY_HOME.'
+    ;;
+esac
+
 export GRADLE_OPTS="-Xmx1G"
 export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m"
 # get rid of annoying java popup during builds
