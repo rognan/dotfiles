@@ -31,6 +31,10 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # dev config
 case $(uname -s) in
+    Linux)
+        export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
+        export JDK_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
+    ;;
     Darwin)
         export JAVA_HOME=$(/usr/libexec/java_home)
         export JDK_HOME=$(/usr/libexec/java_home)
