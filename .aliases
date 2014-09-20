@@ -73,6 +73,10 @@ alias po='popd'
 alias g='git'
 alias gs='g s'
 
+# Turn any directory in your system into a web server directory
+# python -m SimpleHTTPServer [port]
+alias server='python -m SimpleHTTPServer’
+
 # Platform dependent aliases
 case $(uname -s) in
     Darwin)
