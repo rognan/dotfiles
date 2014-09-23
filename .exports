@@ -45,7 +45,7 @@ case $(uname -s) in
     ;;
 esac
 
-export GRADLE_OPTS="-Xmx1G"
+export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m"
 # get rid of annoying java popup during builds
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Djava.awt.headless=true"

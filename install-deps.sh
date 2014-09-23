@@ -13,8 +13,13 @@ case $(uname -s) in
         git clone git://github.com/dronir/SpotifyControl.git
         chmod u+x SpotifyControl/SpotifyControl.scpt
 
+        sudo easy_install pip
+
         # for the c alias (syntax highlighted cat)
-        sudo easy_install Pygments
+        sudo pip install Pygments
+
+        # compass for sass
+        gem install compass
     ;;
     *) echo 'No dependencies to be installed on this platform.';;
 esac
