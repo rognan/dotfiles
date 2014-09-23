@@ -107,6 +107,9 @@ case $(uname -s) in
         # pbcopy | pbpaste for linux
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
+
+        # Fix keyboard in intellij on vmware
+        alias fixkeyboard=ibus-daemon -rd
     ;;
     *) ;;
 esac
