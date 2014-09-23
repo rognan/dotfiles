@@ -103,6 +103,10 @@ case $(uname -s) in
         alias l='ls -F --color'
         alias ls='ls -F --color'
         alias ll='ls -alh --color'
+
+        # pbcopy | pbpaste for linux
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
     ;;
     *) ;;
 esac
