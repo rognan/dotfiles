@@ -20,7 +20,7 @@ function syncDots() {
             rsync --exclude "bin/free" \
             --exclude ".git/" --exclude ".gitmodules" --exclude ".DS_Store" \
             --exclude "sync.sh" --exclude "install-deps.sh" --exclude "osx/" \
-            --exclude "README.md" --exclude "LICENSE" \
+            --exclude "README.md" --exclude "LICENSE" --exclude "bin/subl"\
             -avh . ~
         ;;
         *) echo "Unknown platform detected. Aborting sync ..."
