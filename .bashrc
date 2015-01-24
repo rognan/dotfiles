@@ -18,7 +18,7 @@ shopt -s histappend
 shopt -s cdspell
 
 # enable shims and auto-completion
-if $(which rbenv >/dev/null); then
+if $(type rbenv >/dev/null 2>&1); then
     eval "$(rbenv init -)";
 fi
 
@@ -39,7 +39,7 @@ case $(uname -s) in
     ;;
 
     Darwin)
-        if $( which brew >/dev/null ); then
+        if $( type brew >/dev/null 2>&1 ); then
             # bash completion
             if [ -f $(brew --prefix)/etc/bash_completion ]; then
                 source $(brew --prefix)/etc/bash_completion
@@ -59,5 +59,5 @@ case $(uname -s) in
     *) echo 'Platform unrecognized: Could not install [bash_completion, git-prompt, z directory jumping].';;
 esac
 
-
 # Everything ends
+
