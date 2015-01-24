@@ -10,7 +10,7 @@ fi
 # readable $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
-" Time of day
+# Time of day
 alias now='date +"%Y-%m-%dT%T"'
 
 # VI(M) <3
