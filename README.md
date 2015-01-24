@@ -1,21 +1,12 @@
 # dotfiles
 
-## Installation
-
-```sh
-./sync.sh
-```
+The dotfiles I use on OS X and Ubuntu.
 
 Feel free to use, copy and share.
 
-## I've copied shamelessly ツ
+# setup
 
-* [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
-* [Tim Pope](https://github.com/tpope/vim-pathogen)
-* [Paul Irish](https://github.com/paulirish/dotfiles/)
-* [Mir Nazim](http://mirnazim.org/writings/vim-plugins-i-use/)
-* [Gary Bernhardt & Corey Haines](https://github.com/garybernhardt/dotfiles/blob/master/bin/git-churn)
-* [Zach Holman](https://github.com/holman)
-* [gf3](https://github.com/gf3/dotfiles)
-* [Yan Pritzker](https://github.com/skwp)
-* [GitHub ignores](https://github.com/github/gitignore), and [GitHub dots](http://dotfiles.github.com/)
+If you run ```sh ./sync.sh``` all relevant dotfiles will be written
+to your home directory. Make sure you have a backup of your existing
+files.
+
