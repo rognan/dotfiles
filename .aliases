@@ -9,12 +9,16 @@ fi
 
 # readable $PATH
 alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%Y-%m-%dT%T"'
 
 # VI(M) <3
 alias vi='vim'
 
 # Stop pinging at some point
 alias ping='ping -c 5'
+
+# Specify a shorter interval than the default 1 second
+alias fastping='ping -c100 -i.2'
 
 # Get header from web server
 alias header='curl -I'
@@ -27,6 +31,9 @@ alias wget='wget -c'
 
 # Resume wget by default
 alias wget='wget -c'
+
+# Generate sha1 digest
+alias sha1='openssl sha1'
 
 # Get rid of 'command not found'
 alias cd..='cd ..'
@@ -50,6 +57,11 @@ alias fgrep='fgrep --color=auto'
 # Colorize the cat command output
 # Pre-requisite: sudo pip install Pygments
 alias c='pygmentize -O style=monokai -f console256 -g'
+
+# Colorize diff output
+if type colordiff > /dev/null 2>&1; then
+    alias diff='colordiff'
+fi
 
 # Gradle
 alias gb='gradle build --daemon'
@@ -110,9 +122,15 @@ case $(uname -s) in
 
         # Fix keyboard in intellij on vmware
         alias fixkeyboard='ibus-daemon -rd'
+
+        # Parenting nets
+        alias chown='chown --preserve-root'
+        alias chmod='chmod --preserve-root'
+        alias chgrp='chgrp --preserve-root'
     ;;
     *) ;;
 esac
 
 # Visualization
 alias gourceit='gource -a 3 --hide filenames,dirnames --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
+
