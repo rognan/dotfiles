@@ -9,6 +9,8 @@ fi
 
 # readable $PATH
 alias path='echo -e ${PATH//:/\\n}'
+
+" Time of day
 alias now='date +"%Y-%m-%dT%T"'
 
 # VI(M) <3
@@ -35,7 +37,10 @@ alias wget='wget -c'
 # Generate sha1 digest
 alias sha1='openssl sha1'
 
-# Get rid of 'command not found'
+# For wenting
+alias fucking='sudo'
+
+# Getting rid of 'command not found'
 alias cd..='cd ..'
 
 # Get outta here
