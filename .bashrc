@@ -1,6 +1,6 @@
 # ~/.bashrc
 
-# Load dotfiles
+# Source other dotfiles
 # * ~/.path can be used to extend path
 # * ~/.extra can be used for settings that should not be committed
 for file in ~/.{path,functions,bash_prompt,exports,aliases,extra}; do
@@ -17,12 +17,12 @@ shopt -s histappend
 # Auto-correct typos in path names when using `cd`
 shopt -s cdspell
 
-# enable shims and auto-completion
+# enable ruby shims and auto-completion
 if $(type rbenv >/dev/null 2>&1); then
     eval "$(rbenv init -)";
 fi
 
-# :'(
+# The sad part :'(
 case $(uname -s) in
     Linux)
         if [ -f /etc/bash_completion ]; then
@@ -60,4 +60,3 @@ case $(uname -s) in
 esac
 
 # Everything ends
-

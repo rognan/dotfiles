@@ -1,7 +1,7 @@
 # ~/.bash_prompt
 
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
-# Copied from https://github.com/gf3/dotfiles and somewhat modified
+# Modified from https://github.com/gf3/dotfiles
 
 default_username='thor'
 

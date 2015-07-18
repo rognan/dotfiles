@@ -28,19 +28,13 @@ alias header='curl -I'
 # Check if the web server supports compression
 alias headerc='curl -I --compress'
 
-# Continue getting a partially-downloaded file.
-alias wget='wget -c'
-
 # Resume wget by default
 alias wget='wget -c'
 
 # Generate sha1 digest
 alias sha1='openssl sha1'
 
-# For wenting
-alias fucking='sudo'
-
-# Getting rid of 'command not found'
+# Get rid of 'command not found'
 alias cd..='cd ..'
 
 # Get outta here
@@ -51,7 +45,7 @@ alias .4='cd ../../../../'
 # Make parents, and be verbose
 alias mkdir='mkdir -pv'
 
-# Humanize output of df
+# Humanize output
 alias df='df -h'
 
 # Colorize the grep command output (good for reading log files)

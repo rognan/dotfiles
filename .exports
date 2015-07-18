@@ -4,16 +4,16 @@
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
-# set bash editor to vim
-export EDITOR=/usr/bin/vim
+# Set bash editor to vim:
 # Useful when hitting Ctrl+X, Ctrl+E in the shell to write a particularly
 # complex command, or when you hit 'fc' (fix command) to open the previous
 # command in your editor.
+export EDITOR=/usr/bin/vim
 
 # Set current directory in the header of the shell
 # export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
 
-# Don’t clear the screen after quitting a manual page
+# Do not clear screen after quitting a man-page
 export MANPAGER="less -X"
 
 # Larger bash history (allow 32³ entries; default is 500)

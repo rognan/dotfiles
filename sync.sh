@@ -5,8 +5,6 @@ set -u
 
 cd "$(dirname "$0")"
 
-#git pull origin master
-
 function syncDots() {
     case $(uname -s) in
         Darwin)
