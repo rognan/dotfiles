@@ -1,8 +1,4 @@
-# dotfiles
-
-The dotfiles I use on OS X and Ubuntu.
-
-Feel free to use, copy and share.
+dotfiles I use on OS X and Ubuntu.
 
 # setup
 
