@@ -3,7 +3,7 @@
 # Source other dotfiles
 # * ~/.path can be used to extend path
 # * ~/.extra can be used for settings that should not be committed
-for file in ~/.{path,functions,bash_prompt,exports,aliases,extra}; do
+for file in ~/.{path,functions,bash_prompt,developer,aliases,extra}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
@@ -17,10 +17,34 @@ shopt -s histappend
 # Auto-correct typos in path names when using `cd`
 shopt -s cdspell
 
-# enable ruby shims and auto-completion
-if $(type rbenv >/dev/null 2>&1); then
-    eval "$(rbenv init -)";
-fi
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+
+# Set bash editor to vim:
+# Useful when hitting Ctrl+X, Ctrl+E in the shell to write a particularly
+# complex command, or when you hit 'fc' (fix command) to open the previous
+# command in your editor.
+export EDITOR=/usr/bin/vim
+
+# Set current directory in the header of the shell
+# export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+
+# Do not clear screen after quitting a man-page
+export MANPAGER="less -X"
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+
+# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
+# saved for later analysis
+HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT
+
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 # The sad part :'(
 case $(uname -s) in
