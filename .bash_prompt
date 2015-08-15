@@ -3,8 +3,6 @@
 # @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
 # Modified from https://github.com/gf3/dotfiles
 
-default_username='thor'
-
 if [ ! -z "${COLORTERM+x}" ] && [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
     export TERM=gnome-256color
 elif infocmp xterm-256color >/dev/null 2>&1; then
@@ -40,7 +38,7 @@ fi
 
 # Only show username/host if not default
 function usernamehost() {
-    if [ $USER != "$default_username" ]; then echo "${MAGENTA}$USER${WHITE}@${ORANGE}$HOSTNAME$WHITE:"; fi
+    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then echo "${MAGENTA}$USER${WHITE}@${ORANGE}$HOSTNAME$WHITE:"; fi
 }
 
 # iTerm Tab and Title Customization and prompt customization
