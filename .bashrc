@@ -1,8 +1,11 @@
 # ~/.bashrc
 
+# Return if not running interactively
+[ -z "$PS1" ] && return
+
 # Source other dotfiles
-# * ~/.path can be used to extend path
-# * ~/.extra can be used for settings that should not be committed
+# * ~/.path is used to extend path
+# * ~/.extra is for settings that is not to be public
 for file in ~/.{path,functions,bash_prompt,developer,aliases,extra}; do
     [ -r "$file" ] && source "$file"
 done
