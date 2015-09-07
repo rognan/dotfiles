@@ -1,0 +1,4 @@
+if $(type npm >/dev/null 2>&1); then
+  export PATH=$PATH:~/.npm/bin
+fi
+

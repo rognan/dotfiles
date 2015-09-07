@@ -1,0 +1,23 @@
+export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m"
+export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
+# get rid of annoying java popup during builds
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Djava.awt.headless=true"
+case $(uname -s) in
+    Linux)
+        if [ -r "/usr/bin/javac" ]; then
+            export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
+            export JDK_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
+        fi
+    ;;
+    Darwin)
+        export JAVA_HOME=$(/usr/libexec/java_home)
+        export JDK_HOME=$(/usr/libexec/java_home)
+        export GROOVY_HOME=/usr/local/opt/groovy/libexec
+        if $(type brew >/dev/null 2>&1); then
+            export GRADLE_HOME="$(brew --prefix gradle)/libexec"
+        fi
+    ;;
+    *)
+        echo 'Not exporting JAVA_HOME, JDK_HOME, GROOVY_HOME.'
+    ;;
+esac

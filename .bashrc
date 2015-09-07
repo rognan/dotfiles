@@ -1,15 +1,23 @@
 # ~/.bashrc
 
 # Return if not running interactively
-[ -z "$PS1" ] && return
+[ -z ${PS1+x} ] && return
 
 # Source other dotfiles
-# * ~/.path is used to extend path
-# * ~/.extra is for settings that is not to be public
-for file in ~/.{path,functions,bash_prompt,developer,aliases,extra}; do
+# * ~/.extra is for non-public settings
+for file in ~/.{functions,bash_prompt,aliases,extra}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
+
+for file in ~/.config/dotfiles/development/.{jvm,ruby,node,go}; do
+    [ -r "$file" ] && source "$file"
+done
+unset file
+
+if [ -d "$HOME/bin" ]; then
+  PATH="$HOME/bin:$PATH"
+fi
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
@@ -79,8 +87,6 @@ case $(uname -s) in
             if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
                 source `brew --prefix`/etc/profile.d/z.sh
             fi
-
-            export GRADLE_HOME="$(brew --prefix gradle)/libexec"
         fi
     ;;
     *) echo 'Platform unrecognized: Could not install [bash_completion, git-prompt, z directory jumping].';;
