@@ -1,4 +1,4 @@
-export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m"
+export MAVEN_OPTS="-Xms384m -XX:MaxPermSize=256m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 # get rid of annoying java popup during builds
 export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8 -Djava.awt.headless=true"

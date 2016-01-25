@@ -66,7 +66,7 @@ fi
 alias gb='gradle build --daemon'
 
 # Maven
-alias mci='mvn clean install'
+alias mci='mvn -T 1C clean install'
 alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
 alias mcc='mvn clean compile'
 
@@ -133,3 +133,5 @@ esac
 # Visualization
 alias gourceit='gource -a 3 --hide filenames,dirnames --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
 
+# What colors does my terminal support?
+alias colors='for i in $(seq 0 $(tput colors) ) ; do tput setaf $i ; echo -n "█" ; done ; tput setaf 15 ; echo'
