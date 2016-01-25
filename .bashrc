@@ -22,6 +22,10 @@ fi
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
+# Enable extended globs
+# I.e `for d in /var/lib/data/!(lost+found|tmp); do rsync -avhW --no-compress "$d" /var/backup/; done`
+shopt -s extglob
+
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend
 
@@ -55,7 +59,7 @@ HISTTIMEFORMAT='%F %T '
 export HISTTIMEFORMAT
 
 # Make some commands not show up in history
-export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
+export HISTIGNORE="ls:ls *:ll:ll *:cd:cd -:pwd;exit:date:* --help:man *"
 
 # The sad part :'(
 case $(uname -s) in
