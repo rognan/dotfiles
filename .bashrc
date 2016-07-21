@@ -59,7 +59,7 @@ HISTTIMEFORMAT='%F %T '
 export HISTTIMEFORMAT
 
 # Make some commands not show up in history
-export HISTIGNORE="ls:ls *:ll:ll *:cd:cd -:pwd;exit:date:* --help:man *"
+export HISTIGNORE="pwd;exit:date:* --help:man *"
 
 # The sad part :'(
 case $(uname -s) in
