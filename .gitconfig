@@ -3,7 +3,7 @@
     # Include user specific information
 
 [core]
-    editor = vim 
+    editor = vim
     excludesfile = ~/.gitignore
     autocrlf = input
     # Convert line endings to platform input (LF on *nix, CRLF on windows).
@@ -69,6 +69,7 @@
     cim = commit -m
     ciam = commit -am
     ri = rebase --interactive
+    steps = log --oneline --reverse
 
 [hub]
     protocol = https
