@@ -1,0 +1,7 @@
+[ui]
+username = rognan
+editor = vim
+
+[extensions]
+hgext.fetch =
+mq =
