@@ -39,3 +39,4 @@ else
 fi
 
 unset syncDots
+

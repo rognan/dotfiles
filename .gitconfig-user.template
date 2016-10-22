@@ -1,6 +1,7 @@
 [user]
-    name = <full name>
+    name = <name>
     email = <email address>
 
 [github]
     user = <github username>
+
