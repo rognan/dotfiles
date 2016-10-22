@@ -13,6 +13,9 @@
 ._*
 
 # VIM
+.vim/viminfo
+.vim/swaps/*
+.vim/undo
 .*.sw?
 *.un~
 Session.vim
