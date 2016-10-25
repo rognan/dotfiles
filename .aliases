@@ -96,6 +96,7 @@ case $(uname -s) in
         # Java
         alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7.0)'
         alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)'
+        alias java9='export JAVA_HOME=$(/usr/libexec/java_home -v 9)'
 
         # I always forget how to do this.
         alias killvpn='sudo killall -9 racoon'
