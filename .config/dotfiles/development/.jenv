@@ -1,0 +1,4 @@
+# enable shims and auto-completion
+if $(type jenv >/dev/null 2>&1); then
+    eval "$(jenv init -)";
+fi

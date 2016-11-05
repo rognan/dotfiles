@@ -10,7 +10,7 @@ for file in ~/.{functions,bash_prompt,aliases,extra}; do
 done
 unset file
 
-for file in ~/.config/dotfiles/development/.{jvm,ruby,node,go}; do
+for file in ~/.config/dotfiles/development/.{jvm,jenv,groovy,gradle,mvn,ruby,node,go}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
@@ -53,15 +53,12 @@ export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups:ignorespace
 
-# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
-# saved for later analysis
-HISTTIMEFORMAT='%F %T '
-export HISTTIMEFORMAT
+# timestamps for bash history
+export HISTTIMEFORMAT='%F %T '
 
 # Make some commands not show up in history
 export HISTIGNORE="pwd;exit:date:* --help:man *"
 
-# The sad part :'(
 case $(uname -s) in
     Linux)
         if [ -f /etc/bash_completion ]; then
@@ -79,15 +76,12 @@ case $(uname -s) in
 
     Darwin)
         if $( type brew >/dev/null 2>&1 ); then
-            # bash completion
             if [ -f $(brew --prefix)/etc/bash_completion ]; then
                 source $(brew --prefix)/etc/bash_completion
             fi
-            # git completion
             if [ -f $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh ]; then
                 source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
             fi
-            # z directory jumping
             if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
                 source `brew --prefix`/etc/profile.d/z.sh
             fi
