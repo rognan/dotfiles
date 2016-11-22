@@ -27,13 +27,29 @@
     # Re-use recorded resolutions of conflicts.
 
 [color]
-    ui = auto
-    # Use colors in output from all commands capable of it.
+    ui = always
+[color "diff"]
+    meta = yellow bold
+    commit = green bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = "red bold 52"
+    newNormal = "green bold"
+    newHighlight = "green bold 22"
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "status"]
+    added = green bold
+    changed = red bold
+    untracked = cyan bold
 
 [alias]
-    ap = add --patch
-    # Interactively add parts of a changeset to the index. (I.e some of the changes in the file, but not all)
-
     s = status -sb
     # Short status output.
 
@@ -58,7 +74,7 @@
     count = shortlog -sn
     # Count the number of commits per participant.
 
-    # Convenience, because I'm lazy.
+    # Convenience
     ls = ls-files
     b = branch -v
     r = remote -v
