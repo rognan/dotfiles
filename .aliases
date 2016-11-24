@@ -8,7 +8,12 @@ fi
 # Ask nicely
 alias please='sudo !!'
 
-# readable $PATH
+# Get out of here
+alias .2='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+
+# Readable $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
 # Time of day
@@ -17,6 +22,15 @@ alias now='date +"%Y-%m-%dT%T"'
 # VI(M)
 alias v='vim'
 alias vi='vim'
+
+# Git
+alias g='git'
+alias gs='git status -sb'
+
+# Maven
+alias mci='mvn clean install'
+alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
+alias mcc='mvn clean compile'
 
 # Stop pinging at some point
 alias ping='ping -c 5'
@@ -36,19 +50,11 @@ alias wget='wget -c'
 # Generate sha1 digest
 alias sha1='openssl sha1'
 
-# Get rid of 'command not found'
+# Goodbye to 'command not found'
 alias cd..='cd ..'
 
-# Get outta here
-alias .2='cd ../../'
-alias .3='cd ../../../'
-alias .4='cd ../../../../'
-
-# Make parents, and be verbose
+# Make parents verbosely
 alias mkdir='mkdir -pv'
-
-# Humanize output
-alias df='df -h'
 
 # Prefer coreutils `df` if available
 command -v gdf >/dev/null 2>&1 || alias gdf='df'
@@ -69,7 +75,7 @@ alias ll="gls -alFh ${colorFlag}"
 alias lsd='gls -l | grep "^d"'
 unset colorFlag
 
-# Colorize the grep command output (good for reading log files)
+# Colorize `grep` output (good for reading log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -80,11 +86,6 @@ command -v pygmentize >/dev/null 2>&1 && alias cat='pygmentize -O style=monokai 
 
 # Colorize diff output
 command -v colordiff >/dev/null 2>&1 && alias diff='colordiff'
-
-# Maven
-alias mci='mvn -T 1C clean install'
-alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
-alias mcc='mvn clean compile'
 
 # Rake
 alias brake='bundle exec rake'
@@ -100,17 +101,6 @@ alias localip="ipconfig getifaddr en0"
 alias j='jobs -l'
 alias pu='pushd .'
 alias po='popd'
-
-# Git
-alias g='git'
-alias gs='git status -sb'
-
-# Turn any directory in your system into a web server directory
-# python -m SimpleHTTPServer [port]
-alias server='python -m SimpleHTTPServer'
-
-# The keyboard tend to freeze up in IntelliJ IDEA on Ubuntu
-alias fixkeyboard='ibus-daemon -rd'
 
 # Don't change root `/`
 command -v gchown >/dev/null 2>&1 && alias chown='gchown --preserve-root'
@@ -138,9 +128,16 @@ command -v htop >/dev/null 2>&1 && alias top='htop'
 # Make movie out of .git/
 alias gourceit='gource -a 3 --hide filenames,dirnames --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
 
+# Turn current directory into a web server
+# python -m SimpleHTTPServer [port]
+alias server='python -m SimpleHTTPServer'
+
 # Control Spotify via the command line
 # Requires: https://github.com/dronir/SpotifyControl
 command -v osascript >/dev/null 2>&1 && alias spotify='osascript ~/scripts/SpotifyControl/SpotifyControl'
 
 # Which colors does the terminal support?
 alias colors='for i in $(seq 0 $(tput colors) ) ; do tput setaf $i ; echo -n "█" ; done ; tput setaf 15 ; echo'
+
+# The keyboard tend to freeze up in IntelliJ IDEA on Ubuntu
+alias fixkeyboard='ibus-daemon -rd'
