@@ -91,7 +91,7 @@ alias po='popd'
 
 # Git
 alias g='git'
-alias gs='g s'
+alias gs='git status -sb'
 
 # Turn any directory in your system into a web server directory
 # python -m SimpleHTTPServer [port]
