@@ -75,9 +75,7 @@ alias fgrep='fgrep --color=auto'
 command -v pygmentize >/dev/null 2>&1 && alias cat='pygmentize -O style=monokai -f console256 -g'
 
 # Colorize diff output
-if type colordiff > /dev/null 2>&1; then
-    alias diff='colordiff'
-fi
+command -v colordiff >/dev/null 2>&1 && alias diff='colordiff'
 
 # Maven
 alias mci='mvn -T 1C clean install'
