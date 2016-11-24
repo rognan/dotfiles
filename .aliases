@@ -71,8 +71,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 # Colorize `cat` output
-# Pre-requisite: sudo pip install Pygments
-alias c='pygmentize -O style=monokai -f console256 -g'
+# Requires: `sudo pip install Pygments
+command -v pygmentize >/dev/null 2>&1 && alias cat='pygmentize -O style=monokai -f console256 -g'
 
 # Colorize diff output
 if type colordiff > /dev/null 2>&1; then
