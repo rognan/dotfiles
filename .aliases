@@ -5,13 +5,17 @@ if [ $(id -u) -ne 0 ]; then
     alias shutdown='sudo shutdown'
 fi
 
+# Ask nicely
+alias please='sudo !!'
+
 # readable $PATH
 alias path='echo -e ${PATH//:/\\n}'
 
 # Time of day
 alias now='date +"%Y-%m-%dT%T"'
 
-# VI(M) <3
+# VI(M)
+alias v='vim'
 alias vi='vim'
 
 # Stop pinging at some point
@@ -85,6 +89,14 @@ alias mcc='mvn clean compile'
 # Rake
 alias brake='bundle exec rake'
 
+# All info from dig
+alias dig="dig +nocmd any +multiline +noall +answer"
+
+# Convenience
+alias cask='brew cask'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias localip="ipconfig getifaddr en0"
 alias j='jobs -l'
 alias pu='pushd .'
 alias po='popd'
