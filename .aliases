@@ -83,8 +83,6 @@ alias server='python -m SimpleHTTPServer'
 # Platform dependent aliases
 case $(uname -s) in
     Darwin)
-        alias spotify='osascript ~/code/SpotifyControl/SpotifyControl.scpt'
-
         # I always forget how to do this.
         alias killvpn='sudo killall -9 racoon'
 
@@ -114,6 +112,10 @@ esac
 
 # Visualization
 alias gourceit='gource -a 3 --hide filenames,dirnames --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
+
+# Control Spotify via the command line
+# Requires: https://github.com/dronir/SpotifyControl
+command -v osascript >/dev/null 2>&1 && alias spotify='osascript ~/scripts/SpotifyControl/SpotifyControl'
 
 # Which colors does the terminal support?
 alias colors='for i in $(seq 0 $(tput colors) ) ; do tput setaf $i ; echo -n "█" ; done ; tput setaf 15 ; echo'

@@ -8,20 +8,14 @@ cd "$(dirname "$0")"
 function syncDots() {
     case $(uname -s) in
         Darwin)
-            rsync \
-            --exclude ".git/" --exclude ".gitmodules" --exclude ".DS_Store" \
-            --exclude "sync.sh" --exclude "install-deps.sh" --exclude "osx/" \
-            --exclude "README.md" --exclude "LICENSE" \
-            -avh . ~
+            rsync  --exclude-from=.syncignore --cvs-exclude -avh . ~
         ;;
         Linux)
-            rsync --exclude "bin/free" \
-            --exclude ".git/" --exclude ".gitmodules" --exclude ".DS_Store" \
-            --exclude "sync.sh" --exclude "install-deps.sh" --exclude "osx/" \
-            --exclude "README.md" --exclude "LICENSE" --exclude "bin/subl"\
+            rsync  --exclude-from=.syncignore --cvs-exclude \
+            --exclude "bin/free" --exclude "bin/subl" \
             -avh . ~
         ;;
-        *) echo "Unknown platform detected. Aborting sync ..."
+        *) echo "Unknown OS. Aborting sync ..."
         ;;
     esac
 

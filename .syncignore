@@ -1,0 +1,11 @@
+.syncignore
+.git/
+.git
+.gitmodules
+*.md
+*.adoc
+*.DS_Store
+LICENSE
+sync.sh
+install-deps.sh
+osx/
