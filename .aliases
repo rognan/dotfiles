@@ -46,6 +46,25 @@ alias mkdir='mkdir -pv'
 # Humanize output
 alias df='df -h'
 
+# Prefer coreutils `df` if available
+command -v gdf >/dev/null 2>&1 || alias gdf='df'
+gdf --total >/dev/null 2>&1 && totalFlag='--total' # Gnu `df`
+alias df="gdf -ha ${totalFlag}"
+unset totalFlag
+
+# Prefer coreutils `ls` if available
+command -v gls >/dev/null 2>&1 || alias gls='ls'
+if gls --color >/dev/null 2>&1; then # Gnu `ls`
+  colorFlag='--color'
+else # OS X `ls`
+  colorFlag='-G'
+fi
+
+alias ls="gls -aFh ${colorFlag}"
+alias ll="gls -alFh ${colorFlag}"
+alias lsd='gls -l | grep "^d"'
+unset colorFlag
+
 # Colorize the grep command output (good for reading log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -80,29 +99,22 @@ alias gs='g s'
 # python -m SimpleHTTPServer [port]
 alias server='python -m SimpleHTTPServer'
 
-# Platform dependent aliases
+# The keyboard tend to freeze up in IntelliJ IDEA on Ubuntu
+alias fixkeyboard='ibus-daemon -rd'
+
+# Don't change root `/`
+command -v gchown >/dev/null 2>&1 && alias chown='gchown --preserve-root'
+command -v gchmod >/dev/null 2>&1 && alias chmod='gchmod --preserve-root'
+command -v gchgrp >/dev/null 2>&1 && alias chgrp='gchgrp --preserve-root'
+
 case $(uname -s) in
-    Darwin)
-        # I always forget how to do this.
-        alias killvpn='sudo killall -9 racoon'
-
-        alias l='ls -GF'
-        alias ls='ls -GF'
-        alias ll='ls -alGh'
-    ;;
+    Darwin) alias killvpn='sudo killall -9 racoon';; # I forget
     Linux)
-        alias l='ls -F --color'
-        alias ls='ls -F --color'
-        alias ll='ls -alh --color'
-
-        # pbcopy | pbpaste for linux
+        # Prefer the command I remember
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
 
-        # Fix keyboard in intellij on vmware
-        alias fixkeyboard='ibus-daemon -rd'
-
-        # Parenting
+        # Don't change root `/`
         alias chown='chown --preserve-root'
         alias chmod='chmod --preserve-root'
         alias chgrp='chgrp --preserve-root'
