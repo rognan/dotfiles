@@ -61,33 +61,19 @@ export HISTIGNORE="pwd;exit:date:* --help:man *"
 
 case $(uname -s) in
     Linux)
-        if [ -f /etc/bash_completion ]; then
-            . /etc/bash_completion
-        fi
-
-        if [ -f /etc/bash_completion.d/git-prompt ]; then
-            . /etc/bash_completion.d/git-prompt
-        fi
-
-        if [ -f ~/.ext-lib/z-directory-jumper/z.sh ]; then
-            . ~/.ext-lib/z-directory-jumper/z.sh
-        fi
+      source /etc/bash_completion
+      source /etc/bash_completion.d/git-prompt
+      source ~/.ext-lib/z-directory-jumper/z.sh
     ;;
 
     Darwin)
-        if $( type brew >/dev/null 2>&1 ); then
-            if [ -f $(brew --prefix)/etc/bash_completion ]; then
-                source $(brew --prefix)/etc/bash_completion
-            fi
-            if [ -f $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh ]; then
-                source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
-            fi
-            if [ -f $(brew --prefix)/etc/profile.d/z.sh ]; then
-                source `brew --prefix`/etc/profile.d/z.sh
-            fi
-        fi
+      if (command -v brew >/dev/null 2>&1); then
+        source $(brew --prefix)/etc/bash_completion
+        source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
+        source $(brew --prefix)/etc/profile.d/z.sh
+      fi
     ;;
-    *) echo 'Platform unrecognized: Could not install [bash_completion, git-prompt, z directory jumping].';;
+    *) echo 'Platform unrecognized: Could not configure [bash_completion, git-prompt, z directory jumping].';;
 esac
 
 # Everything ends
