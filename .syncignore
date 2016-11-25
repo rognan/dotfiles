@@ -1,4 +1,5 @@
 .syncignore
+.ssh/
 .git/
 .git
 .gitmodules
