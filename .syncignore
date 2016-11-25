@@ -2,6 +2,7 @@
 .ssh/
 .git/
 .git
+.extra
 .gitmodules
 *.md
 *.adoc

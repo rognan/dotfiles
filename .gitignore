@@ -3,9 +3,6 @@
 
 .gitconfig-user
 
-# dotfiles
-.extra
-
 # User history (sensitive information)
 .netrwhist
 
