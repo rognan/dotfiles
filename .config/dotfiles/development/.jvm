@@ -5,11 +5,5 @@ case $(uname -s) in
             export JDK_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
         fi
     ;;
-    Darwin)
-        export JAVA_HOME="$(/usr/libexec/java_home)"
-        export JDK_HOME="$(/usr/libexec/java_home)"
-    ;;
-    *)
-        echo 'Not exporting JAVA_HOME | JDK_HOME'
-    ;;
+    *) : ;; # Jenv handles java_home on OS X, ignore otherwise
 esac
