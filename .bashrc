@@ -1,19 +1,5 @@
-# ~/.bashrc
-
 # Return if not running interactively
 [ -z ${PS1+x} ] && return
-
-# Source other dotfiles
-# * ~/.extra is for non-public settings
-for file in ~/.{functions,bash_prompt,aliases,extra}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
-
-for file in ~/.config/dotfiles/development/.{jvm,jenv,groovy,gradle,mvn,ruby,node,go}; do
-    [ -r "$file" ] && source "$file"
-done
-unset file
 
 if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
@@ -64,16 +50,49 @@ case $(uname -s) in
       source /etc/bash_completion
       source /etc/bash_completion.d/git-prompt
       source ~/.ext-lib/z-directory-jumper/z.sh
+      # Jenv is installed with homebrew on OS X,
+      # on Linux the repository is cloned here:
+      export PATH="$HOME/.jenv/bin:$PATH"
     ;;
-
     Darwin)
-      if (command -v brew >/dev/null 2>&1); then
-        source $(brew --prefix)/etc/bash_completion
-        source $(brew --prefix git)/etc/bash_completion.d/git-prompt.sh
-        source $(brew --prefix)/etc/profile.d/z.sh
-      fi
+      export GROOVY_HOME="/usr/local/opt/groovy/libexec"
+      export GRADLE_HOME="/usr/local/opt/gradle/libexec"
+      export GOROOT="/usr/local/opt/go/libexec"
+      export GOPATH=$HOME/go/work
+      export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+      # source in background because it's slow
+      (source /usr/local/etc/bash_completion &) 2>/dev/null
+      source /usr/local/opt/git/etc/bash_completion.d/git-prompt.sh
+      source /usr/local/etc/profile.d/z.sh
     ;;
-    *) echo 'Platform unrecognized: Could not configure [bash_completion, git-prompt, z directory jumping].';;
+    *) echo -e '\e[33Unrecognized OS, some shell-features may not be available';;
 esac
+
+source $HOME/.bash_prompt
+source $HOME/.functions
+source $HOME/.aliases
+source $HOME/.extra
+
+export MAVEN_OPTS="-Xms384m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# #
+# enable shims and auto-completion
+#
+# remember to run once:
+# for plugin in {export,gradle,groovy,maven,springboot}; do
+#   $(jenv enable-plugin $plugin)
+# done
+# unset plugin
+if (command -v jenv >/dev/null 2>&1); then
+  eval "$(jenv init - --no-rehash)"
+  (jenv rehash &) 2>/dev/null # rehash in background
+fi
+
+if (command -v rbenv >/dev/null 2>&1); then
+  eval "$(rbenv init - --no-rehash)"
+  (rbenv rehash &) 2>/dev/null # rehash in background
+fi
 
 # Everything ends

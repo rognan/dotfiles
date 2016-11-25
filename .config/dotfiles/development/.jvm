@@ -1,9 +1,0 @@
-case $(uname -s) in
-    Linux)
-        if [ -r "/usr/bin/javac" ]; then
-            export JAVA_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
-            export JDK_HOME=$(dirname $(dirname $(readlink -e /usr/bin/javac)))
-        fi
-    ;;
-    *) : ;; # Jenv handles java_home on OS X, ignore otherwise
-esac

@@ -10,3 +10,6 @@
 [submodule "spotify-control"]
 	path = scripts/SpotifyControl
 	url = git@github.com:dronir/SpotifyControl
+[submodule "jevn"]
+	path = .jenv
+	url = git@github.com:gcuisinier/jenv.git

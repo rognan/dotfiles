@@ -8,7 +8,7 @@ cd "$(dirname "$0")"
 function syncDots() {
     case $(uname -s) in
         Darwin)
-            rsync  --exclude-from=.syncignore --cvs-exclude -avh . ~
+            rsync  --exclude-from=.syncignore --cvs-exclude --exclude ".jenv" -avh . ~
         ;;
         Linux)
             rsync  --exclude-from=.syncignore --cvs-exclude \
@@ -33,4 +33,3 @@ else
 fi
 
 unset syncDots
-

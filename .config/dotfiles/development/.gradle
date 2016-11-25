@@ -1,5 +1,0 @@
-export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
-
-if $(type brew >/dev/null 2>&1); then
-    export GRADLE_HOME="$(brew --prefix gradle)/libexec"
-fi
