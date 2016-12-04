@@ -3,7 +3,9 @@
     # Include user specific information
 
 [core]
-    editor = vim
+    editor = vim -c \"set fileencodings=utf-8,latin1,ucs-bom\"
+    quotepath = false
+    precomposeunicode = false
     excludesfile = ~/.gitignore
     autocrlf = input
     # Convert line endings to platform input (LF on *nix, CRLF on windows).
