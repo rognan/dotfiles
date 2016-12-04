@@ -1,6 +1,5 @@
 [include]
     path = ~/.gitconfig-user
-    # Include user specific information
 
 [core]
     editor = vim -c \"set fileencodings=utf-8,latin1,ucs-bom\"
@@ -8,10 +7,6 @@
     precomposeunicode = false
     excludesfile = ~/.gitignore
     autocrlf = input
-    # Convert line endings to platform input (LF on *nix, CRLF on windows).
-    # In other words, don't use this on windows. Use 'true' instead.
-    # Use a .gitattributes file in projects to avoid problems with line endings
-    # from participants on disparate platforms.
 
 [commit]
     template = ~/.gitmessage
@@ -22,14 +17,13 @@
 [merge]
     tool = opendiff
     log = true
-    # Include summaries of merged commits in merge commit messages.
 
 [rerere]
     enabled = true
-    # Re-use recorded resolutions of conflicts.
 
 [color]
     ui = always
+
 [color "diff"]
     meta = yellow bold
     commit = green bold
@@ -37,15 +31,18 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = "red bold 52"
     newNormal = "green bold"
     newHighlight = "green bold 22"
+
 [color "branch"]
     current = yellow reverse
     local = yellow
     remote = green
+
 [color "status"]
     added = green bold
     changed = red bold
@@ -53,45 +50,31 @@
 
 [alias]
     s = status -sb
-    # Short status output.
 
+    # List files ignored by git
     ls-ignored = ls-files -o -i --exclude-standard
-    # List files in repo that's .gitignored.
 
-    cp = cherry-pick -x
     # Copy a commit with the message "Cherry picked from ...".
+    cp = cherry-pick -x
 
     unstage = reset HEAD
-    # Unstage a resent git add.
-
     uncommit  = reset --soft HEAD^
-    # Undo previous commit.
 
+    # Short readable log format with relative time.
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
-    # Short and readable log format with relative time.
 
+    # Short(er)s readable log format without relative time.
     flog = log --graph --topo-order --decorate --oneline --first-parent
-    # Short(er) and readable log format without relative time.
 
+    # Count number of commits per participant.
     count = shortlog -sn
-    # Count the number of commits per participant.
 
-    # Convenience
     ls = ls-files
-    b = branch -v
-    r = remote -v
-    t = tag -l
-    ta = tag -a
-    co = checkout
-    ci = commit
-    cim = commit -m
-    ciam = commit -am
-    ri = rebase --interactive
     steps = log --oneline --reverse
 
 [hub]
     protocol = https
 
 [credential]
-        #helper = osxkeychain
-	helper = cache --timeout=3600
+    #helper = osxkeychain
+	  helper = cache --timeout=3600
