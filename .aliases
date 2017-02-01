@@ -123,7 +123,15 @@ esac
 command -v htop >/dev/null 2>&1 && alias top='htop'
 
 # Make movie out of .git/
-alias gourceit='gource -a 3 --hide filenames,dirnames --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
+# big project:
+# gource --max-user-speed 500 --seconds-per-day 0.05 --file-idle-time 10 -e 0.005 --max-files 300 -a 3 --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
+#
+# medium project:
+# gource --max-user-speed 300 --seconds-per-day 0.7 --file-idle-time 10 -e 0.005 --max-files 400 -a 3 --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
+#
+# small project:
+# gource -a 3 --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4
+alias gourceit='gource -a 3 --highlight-users --camera-mode overview -1280x720 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 gource.mp4'
 
 # Turn current directory into a web server
 # python -m SimpleHTTPServer [port]
