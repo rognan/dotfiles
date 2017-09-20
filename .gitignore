@@ -47,6 +47,7 @@ xcuserdata
 !default.perspectivev3
 
 # Intellij IDEA
+out/
 *.iml
 *.ipr
 *.iws
