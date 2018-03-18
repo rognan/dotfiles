@@ -97,6 +97,10 @@ if (command -v rbenv >/dev/null 2>&1); then
   (rbenv rehash &) 2>/dev/null # rehash in background
 fi
 
+if (command -v pyenv >/dev/null 2>&1); then
+    eval "$(pyenv init -)"
+fi
+
 # Enable auto activation for pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
