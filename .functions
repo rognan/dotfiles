@@ -1,5 +1,11 @@
 # ~/.functions
 
+# Fast way to make .gitignore files with https://www.gitignore.io
+#
+# Example usage:
+# $ gi java,gradle >> .gitignore
+function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
+
 # Reverse lookup of ip address.
 function rlookup() {
     if [[ -z "${1+x}" ]]; then echo 'Usage: rlookup <ip address>'; return 1; fi
