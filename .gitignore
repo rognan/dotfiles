@@ -57,11 +57,14 @@ atlassian-ide-plugin.xml
 # Build files
 /build
 
-# Java / Maven
+# Java 
 .class
 .jar
 .war
 .ear
+
+# Maven
+.mvn/
 target/
 
 # Jenv
