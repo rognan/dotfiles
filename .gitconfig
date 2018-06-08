@@ -72,6 +72,12 @@
     # Add savepoint for later squashing
     save = !git add --all && git commit -m "---SAVEPOINT---"
 
+    # Commit changes in working directory, then undo the commit so as
+    # to create a dangling commit with the changes in case you need them
+    # later on - use git reflog to find the commit sha if you find you
+    # need the changes later on after all
+    discard = !git add --all && git commit -qm '---DISCARD SAVEPOINT---' && git reset HEAD~1 --hard
+
     ls = ls-files
     steps = log --oneline --reverse
 
