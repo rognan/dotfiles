@@ -69,6 +69,9 @@
     # Count number of commits per participant.
     count = shortlog -sn
 
+    # Add savepoint for later squashing
+    save = !git add --all && git commit -m "---SAVEPOINT---"
+
     ls = ls-files
     steps = log --oneline --reverse
 
