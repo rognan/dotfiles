@@ -62,8 +62,7 @@ case $(uname -s) in
       export GOROOT="/usr/local/opt/go/libexec"
       export GOPATH=$HOME/go/work
       export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
-      # source in background because it's slow
-      (source /usr/local/etc/bash_completion &) 2>/dev/null
+      source /usr/local/etc/bash_completion
       source /usr/local/opt/git/etc/bash_completion.d/git-prompt.sh
       source /usr/local/etc/profile.d/z.sh
     ;;
