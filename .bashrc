@@ -62,8 +62,13 @@ case $(uname -s) in
       export GOROOT="/usr/local/opt/go/libexec"
       export GOPATH=$HOME/go/work
       export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
-      source /usr/local/etc/bash_completion
-      source /usr/local/opt/git/etc/bash_completion.d/git-prompt.sh
+
+      if type brew 2&>/dev/null; then
+        for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
+            source "$completion_file"
+        done
+      fi
+
       source /usr/local/etc/profile.d/z.sh
     ;;
     *) echo -e '\e[33Unrecognized OS, some shell-features may not be available';;
