@@ -95,3 +95,7 @@ target/
 *.egg
 *.deb
 *.rpm
+
+# oh-my-zsh gradle plugin
+.gradletasknamecache
+
