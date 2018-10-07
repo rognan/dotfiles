@@ -1,6 +1,13 @@
 [user]
     name = <name>
     email = <email address>
+    signingkey = <key-id>
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    program = gpg
 
 [github]
     user = <github username>

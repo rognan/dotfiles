@@ -1,4 +1,4 @@
-dotfiles in use on OS X and Ubuntu
+dotfiles in use on OS X
 
 ```./sync.sh --force``` will write dotfiles to ~/
 
