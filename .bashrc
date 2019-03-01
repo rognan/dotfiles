@@ -87,6 +87,7 @@ export GPG_TTY=$(tty)
 export MAVEN_OPTS="-Xms384m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # #
 # enable shims and auto-completion
