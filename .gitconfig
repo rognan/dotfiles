@@ -82,7 +82,7 @@
     steps = log --oneline --reverse
 
 [hub]
-    protocol = https
+    protocol = ssh
 
 [credential]
     #helper = osxkeychain
