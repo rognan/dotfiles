@@ -110,6 +110,12 @@ if (command -v jenv >/dev/null 2>&1); then
   (jenv rehash &) 2>/dev/null # rehash in background
 fi
 
+if (command -v brew >/dev/null 2>&1); then
+  if (command -v asdf >/dev/null 2>&1); then
+      source "$(brew --prefix asdf)/asdf.sh"
+  fi
+fi
+
 if (command -v rbenv >/dev/null 2>&1); then
   eval "$(rbenv init - --no-rehash)"
   (rbenv rehash &) 2>/dev/null # rehash in background
