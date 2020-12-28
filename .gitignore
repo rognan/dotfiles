@@ -56,5 +56,8 @@ atlassian-ide-plugin.xml
 # Jenv
 .java-version
 
+# asdf-vm
+.tool-versions
+
 # oh-my-zsh gradle plugin
 .gradletasknamecache
