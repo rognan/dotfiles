@@ -86,9 +86,6 @@ source $HOME/.aliases
 source $HOME/.extra
 
 export GPG_TTY=$(tty)
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh" # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 export MAVEN_OPTS="-Xms384m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
 export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 export PATH="$HOME/.rbenv/bin:$PATH"
