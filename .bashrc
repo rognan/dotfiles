@@ -52,9 +52,6 @@ case $(uname -s) in
       source /etc/bash_completion
       source /etc/bash_completion.d/git-prompt
       source ~/.ext-lib/z-directory-jumper/z.sh
-      # Jenv is installed with homebrew on OS X,
-      # on Linux the repository is cloned here:
-      export PATH="$HOME/.jenv/bin:$PATH"
     ;;
     Darwin)
       export GROOVY_HOME="/usr/local/opt/groovy/libexec"
@@ -96,19 +93,6 @@ export MAVEN_OPTS="-Xms384m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLev
 export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# #
-# enable shims and auto-completion
-#
-# remember to run once:
-# for plugin in {export,gradle,groovy,maven,springboot}; do
-#   $(jenv enable-plugin $plugin)
-# done
-# unset plugin
-if (command -v jenv >/dev/null 2>&1); then
-  eval "$(jenv init - --no-rehash)"
-  (jenv rehash &) 2>/dev/null # rehash in background
-fi
 
 if (command -v brew >/dev/null 2>&1); then
   if (command -v asdf >/dev/null 2>&1); then
