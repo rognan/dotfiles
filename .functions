@@ -1,5 +1,22 @@
 # ~/.functions
 
+# Some tools depend on JAVA_HOME being set.
+# This function can be called automatically 
+# by putting the following in ~/.bashrc
+# function prompt_command {
+#   __vte_prompt_command
+#   asdf_update_java_home   
+# }
+#
+# export PROMPT_COMMAND=prompt_command
+function asdf_update_java_home {
+  asdf current java 2>&1 > /dev/null
+  if [[ "$?" -eq 0 ]]
+  then
+      export JAVA_HOME=$(asdf where java)
+  fi
+}
+
 # Fast way to make .gitignore files with https://www.gitignore.io
 #
 # Example usage:
