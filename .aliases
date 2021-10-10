@@ -26,6 +26,7 @@ alias vi='vim'
 # Git
 alias g='git'
 alias gs='git status -sb'
+alias gdangle="git fsck --lost-found --dangling 2> /dev/null | cut -d ' ' -f 3 | xargs git log --oneline --no-walk"
 
 # Maven
 alias mci='mvn clean install'
