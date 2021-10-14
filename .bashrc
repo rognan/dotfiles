@@ -54,8 +54,6 @@ case $(uname -s) in
       source ~/.ext-lib/z-directory-jumper/z.sh
     ;;
     Darwin)
-      export GROOVY_HOME="/usr/local/opt/groovy/libexec"
-      export GRADLE_HOME="/usr/local/opt/gradle/libexec"
       export GOROOT="/usr/local/opt/go/libexec"
       export GOPATH=$HOME/go/work
       export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
