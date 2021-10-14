@@ -84,8 +84,6 @@ source $HOME/.aliases
 source $HOME/.extra
 
 export GPG_TTY=$(tty)
-export MAVEN_OPTS="-Xms384m -Xmx1024m -XX:+TieredCompilation -XX:TieredStopAtLevel=1"
-export GRADLE_OPTS="-Dorg.gradle.daemon=true -Xmx1G"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if (command -v brew >/dev/null 2>&1); then
