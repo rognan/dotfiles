@@ -1,0 +1,2 @@
+To import a theme, simply run `open ./.terminal/themes/some-theme.terminal`.
+It should pop up in terminal>preferences>profiles
