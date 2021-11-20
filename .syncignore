@@ -11,3 +11,4 @@ LICENSE
 sync.sh
 install-deps.sh
 osx/
+.config/git/allowed_signers

@@ -6,9 +6,14 @@
 [commit]
     gpgsign = true
 
+[tag]
+    gpgsign = true
+
 [gpg]
-    program = gpg
+    format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.config/git/allowed_signers
 
 [github]
     user = <github username>
-
