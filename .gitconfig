@@ -67,7 +67,7 @@
     flog = log --graph --topo-order --decorate --oneline --first-parent
 
     # Count number of commits per participant.
-    count = shortlog -sn
+    count = shortlog --no-merges -n -s
 
     # Add savepoint for later squashing
     save = !git add --all && git commit -m "---SAVEPOINT---"
