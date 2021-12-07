@@ -88,7 +88,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 if (command -v brew >/dev/null 2>&1); then
   if (command -v asdf >/dev/null 2>&1); then
-      source "$(brew --prefix asdf)/asdf.sh"
+      source "$(brew --prefix asdf)/libexec/asdf.sh"
   fi
 fi
 
