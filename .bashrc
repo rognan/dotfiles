@@ -69,7 +69,6 @@ case $(uname -s) in
         fi
       fi
 
-      source /usr/local/etc/profile.d/z.sh
     ;;
     *) echo -e '\e[33Unrecognized OS, some shell-features may not be available';;
 esac
@@ -83,6 +82,9 @@ export GPG_TTY=$(tty)
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if (command -v brew >/dev/null 2>&1); then
+  if [ -f "$(brew --prefix z)/etc/profile.d/z.sh" ]; then
+    source "$(brew --prefix z)/etc/profile.d/z.sh"
+  fi
   if (command -v asdf >/dev/null 2>&1); then
       source "$(brew --prefix asdf)/libexec/asdf.sh"
   fi
