@@ -1,7 +1,5 @@
 # ~/.extra example
 #
-# alias coffee='cat ~/ascii/coffee'
-#
 # alias wakeup='/usr/bin/wakeonlan 00:11:22:33:44:AA'
 #
 # alias rebootrouter="ssh root@192.168.1.1 /sbin/reboot"

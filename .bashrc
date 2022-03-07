@@ -54,10 +54,6 @@ case $(uname -s) in
       source ~/.ext-lib/z-directory-jumper/z.sh
     ;;
     Darwin)
-      export GOROOT="/usr/local/opt/go/libexec"
-      export GOPATH=$HOME/go/work
-      export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
-
       if [ -f /usr/local/share/bash-completion/bash_completion ]; then
           source /usr/local/share/bash-completion/bash_completion
       fi
@@ -91,12 +87,5 @@ if (command -v brew >/dev/null 2>&1); then
       source "$(brew --prefix asdf)/libexec/asdf.sh"
   fi
 fi
-
-if (command -v pyenv >/dev/null 2>&1); then
-    eval "$(pyenv init -)"
-fi
-
-# Enable auto activation for pyenv-virtualenv
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # Everything ends

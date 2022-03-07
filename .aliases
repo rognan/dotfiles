@@ -5,9 +5,6 @@ if [ $(id -u) -ne 0 ]; then
     alias shutdown='sudo shutdown'
 fi
 
-# Ask nicely
-alias please='sudo !!'
-
 # Get out of here
 alias .2='cd ../../'
 alias .3='cd ../../../'
@@ -20,18 +17,12 @@ alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%Y-%m-%dT%T"'
 
 # VI(M)
-alias v='vim'
 alias vi='vim'
 
 # Git
 alias g='git'
 alias gs='git status -sb'
 alias gdangle="git fsck --lost-found --dangling 2> /dev/null | cut -d ' ' -f 3 | xargs git log --oneline --no-walk"
-
-# Maven
-alias mci='mvn clean install'
-alias mcist='mvn clean install -DskipTests -Dmvn.test.skip=true'
-alias mcc='mvn clean compile'
 
 # Stop pinging at some point
 alias ping='ping -c 5'
@@ -92,7 +83,6 @@ command -v colordiff >/dev/null 2>&1 && alias diff='colordiff'
 alias dig="dig +nocmd any +multiline +noall +answer"
 
 # Convenience
-alias cask='brew cask'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias localip="ipconfig getifaddr en0"
