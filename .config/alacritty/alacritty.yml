@@ -1,5 +1,5 @@
 window:
   startup_mode: SimpleFullscreen
+  opacity: 0.75
 scrolling:
   history: 100000
-background_opacity: 0.75
