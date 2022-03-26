@@ -1,6 +1,14 @@
 window:
-  startup_mode: SimpleFullscreen
+  dimensions:
+    columns: 500
+    lines: 30
+  position:
+    x: 0
+    y: 0
   opacity: 0.75
+  decorations: none
 scrolling:
   history: 100000
+key_bindings:
+  -  { key: Return, mods: Command, action: ToggleSimpleFullScreen }
 alt_send_esc: false
