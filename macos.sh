@@ -135,6 +135,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # 24 hour menu bar clock with date
 defaults write com.apple.menuextra.clock DateFormat -string "EEE MMM d HH:mm"
 
+# Clear "Hot Corners", requires "killall Dock" afterwards
+defaults write com.apple.dock wvous-tl-corner -int 0
+defaults write com.apple.dock wvous-tr-corner -int 0
+defaults write com.apple.dock wvous-bl-corner -int 0
+defaults write com.apple.dock wvous-br-corner -int 0
+
 ###############################################################################
 # Firewall                                                                    #
 ###############################################################################
