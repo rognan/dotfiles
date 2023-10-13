@@ -82,6 +82,9 @@ export GPG_TTY=$(tty)
 export PATH="$HOME/.cargo/bin:$PATH"
 
 if (command -v brew >/dev/null 2>&1); then
+  # homebrew uses Google Analytics to collect usage telemetry, which
+  # can be turned off with `brew analytics off` or by setting:
+  export HOMEBREW_NO_ANALYTICS=1
   if [ -f "$(brew --prefix z)/etc/profile.d/z.sh" ]; then
     source "$(brew --prefix z)/etc/profile.d/z.sh"
   fi
