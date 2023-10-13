@@ -147,7 +147,7 @@ defaults write com.apple.dock wvous-br-corner -int 0
 
 # Turn on firewall
 defaults write /Library/Preferences/com.apple.alf globalstate -int 1
- 
+
 # Allow signed applications through the firewall
 defaults write /Library/Preferences/com.apple.alf allowsignedenabled -int 1
 
@@ -958,17 +958,10 @@ for app in "Activity Monitor" \
 	"Google Chrome Canary" \
 	"Google Chrome" \
 	"Mail" \
-#	"Messages" \
-	"Opera" \
 	"Photos" \
 	"Safari" \
-#	"SizeUp" \
-#	"Spectacle" \
 	"SystemUIServer" \
 	"Terminal" \
-#	"Transmission" \
-#	"Tweetbot" \
-#	"Twitter" \
 	"iCal"; do
 	killall "${app}" &> /dev/null
 done
