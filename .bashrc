@@ -89,7 +89,8 @@ if (command -v brew >/dev/null 2>&1); then
     source "$(brew --prefix z)/etc/profile.d/z.sh"
   fi
   if (command -v asdf >/dev/null 2>&1); then
-      source "$(brew --prefix asdf)/libexec/asdf.sh"
+      export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+      source <(asdf completion bash)
   fi
 fi
 
