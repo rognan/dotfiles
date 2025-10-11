@@ -30,11 +30,11 @@ else
     RESET="\[\033[m\]"
 fi
 
-prompt_parent_current() {
+tab_title() {
   parent=$(basename "$(dirname "$PWD")")
   echo -n "$parent/$(basename "$PWD")"
 }
 
 GIT_PS1_SHOWDIRTYSTATE=true
 
-PS1="\[\e]2;\u@\h:\w\a\]\[\e]1;\$(prompt_parent_current)\a\]${BOLD}${GREEN}\w ${PURPLE}\$(__git_ps1 \"%s\")${WHITE}\n\$ $RESET"
+PS1="\[\e]2;\u@\h:\w\a\]\[\e]1;\$(tab_title)\a\]${BOLD}${GREEN}\w ${PURPLE}\$(__git_ps1 \"%s\")${WHITE}\n\$ $RESET"
