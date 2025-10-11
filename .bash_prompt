@@ -1,11 +1,6 @@
 # ~/.bash_prompt
 
-# @gf3’s Sexy Bash Prompt, inspired by “Extravagant Zsh Prompt”
-# Modified from https://github.com/gf3/dotfiles
-
-if [ ! -z "${COLORTERM+x}" ] && [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
-    export TERM=gnome-256color
-elif infocmp xterm-256color >/dev/null 2>&1; then
+if infocmp xterm-256color >/dev/null 2>&1; then
     export TERM=xterm-256color
 fi
 
@@ -41,15 +36,6 @@ function usernamehost() {
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then echo "${MAGENTA}$USER${WHITE}@${ORANGE}$HOSTNAME$WHITE:"; fi
 }
 
-# iTerm Tab and Title Customization and prompt customization
-# http://sage.ucsc.edu/xtal/iterm_tab_customization.html
-
-# Put the string " [bash]   hostname::/full/directory/path"
-# in the title bar using the command sequence
-# \[\e]2;[bash]   \h::\]$PWD\[\a\]
-
-# Put the penultimate and current directory
-# in the iterm tab
-# \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 GIT_PS1_SHOWDIRTYSTATE=true
+
 PS1="\[\e]2;$PWD\[\a\]\[\e]1;\]$(basename "$(dirname "$PWD")")/\W\[\a\]${BOLD}\$(usernamehost)\[$GREEN\]\w ${PURPLE}\$(__git_ps1 \"%s\")\[$WHITE\]\n\$ \[$RESET\]"
