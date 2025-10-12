@@ -37,4 +37,4 @@ tab_title() {
 
 GIT_PS1_SHOWDIRTYSTATE=true
 
-PS1="\[\e]2;\u@\h:\w\a\]\[\e]1;\$(tab_title)\a\]${BOLD}${GREEN}\w ${PURPLE}\$(__git_ps1 \"%s\")${WHITE}\n\$ $RESET"
+PS1="\[\e]2;\u@\h:\w\a\]\[\e]1;\$(tab_title)\a\]${BOLD}${GREEN}\w ${PURPLE}\$(__git_ps1 \"%s\")${WHITE}\n\$$RESET "
