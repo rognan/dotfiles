@@ -6,6 +6,10 @@
 # User history (sensitive information)
 .netrwhist
 
+# env-vars (sensitive information)
+.env
+.envrc
+
 # Thumbnails
 ._*
 
