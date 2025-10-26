@@ -9,12 +9,7 @@ augroup vimrc_reload
     " appear twice. autocmd! removes all autocommands for the current
     " group.
 
-    if has("gui_running")
-        " Reload .vimrc and .gvimrc on save
-        autocmd BufWritePost .*imrc,*.vim so $MYVIMRC | so $MYGVIMRC
-    else
-        autocmd BufWritePost .vimrc,*.vim so $MYVIMRC
-    endif
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC | set nomodified
 augroup end
 
 let mapleader=","
