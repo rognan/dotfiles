@@ -23,7 +23,6 @@ export HISTTIMEFORMAT='%F %T '
 
 if (command -v brew &>/dev/null); then
   export HOMEBREW_NO_ANALYTICS=1
-  eval "$(brew shellenv)"
 
   if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
