@@ -1,28 +1,5 @@
 # ~/.functions
 
-# Some tools depend on JAVA_HOME being set.
-# This function can be called automatically 
-# by putting the following in ~/.bashrc
-# function prompt_command {
-#   __vte_prompt_command
-#   asdf_update_java_home   
-# }
-#
-# export PROMPT_COMMAND=prompt_command
-function asdf_update_java_home {
-  asdf current java 2>&1 > /dev/null
-  if [[ "$?" -eq 0 ]]
-  then
-      export JAVA_HOME=$(asdf where java)
-  fi
-}
-
-# Fast way to make .gitignore files with https://www.gitignore.io
-#
-# Example usage:
-# $ gi java,gradle >> .gitignore
-function gi() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
 # Reverse lookup of ip address.
 function rlookup() {
     if [[ -z "${1+x}" ]]; then echo 'Usage: rlookup <ip address>'; return 1; fi
