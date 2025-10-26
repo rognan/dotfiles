@@ -27,9 +27,6 @@ set scrolloff=2
 set showmatch
 " Show matching brackets when cursor is over them.
 
-" Don't highlight lines longer than 800 characters.
-set synmaxcol=800
-
 set mat=2
 " The tenths of a second to blink when matching brackets.
 
