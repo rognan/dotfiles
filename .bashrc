@@ -94,4 +94,8 @@ if (command -v brew >/dev/null 2>&1); then
   fi
 fi
 
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook bash)"
+fi
+
 # Everything ends
