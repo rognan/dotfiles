@@ -3,8 +3,6 @@
 " Dependencies:
 "
 
-set nocompatible
-
 augroup vimrc_reload
     autocmd!
     " When your .vimrc file is sourced twice, the autocommands will
