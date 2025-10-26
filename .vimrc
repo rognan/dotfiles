@@ -1,14 +1,8 @@
 " ~/.vimrc
 "
 " Dependencies:
-" - ack
 "
 
-filetype off
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
-filetype plugin indent on
 set nocompatible
 
 augroup vimrc_reload
@@ -116,9 +110,6 @@ set smartcase
 
 set smarttab
 " Intelligent tab usage.
-
-set grepprg=ack
-" Replace grep with ack.
 
 set incsearch
 " Incremental search while typing.
