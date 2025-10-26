@@ -48,24 +48,24 @@ export HISTTIMEFORMAT='%F %T '
 export HISTIGNORE="pwd;exit:date:* --help:man *"
 
 case $(uname -s) in
-    Darwin)
-      if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-          source /usr/local/share/bash-completion/bash_completion
-      fi
+  Darwin)
+    if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+      source /usr/local/share/bash-completion/bash_completion
+    fi
 
-      if type brew &>/dev/null; then
-        HOMEBREW_PREFIX=$(brew --prefix)
-        for completion_file in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*; do
-            [[ -f "${completion_file}" ]] && source "$completion_file"
-        done
-        if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]];
-        then
-            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-        fi
+    if type brew &>/dev/null; then
+      HOMEBREW_PREFIX=$(brew --prefix)
+      for completion_file in "$HOMEBREW_PREFIX"/etc/bash_completion.d/*; do
+        [[ -f "${completion_file}" ]] && source "$completion_file"
+      done
+      if [[ -f ${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh ]];
+      then
+        source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
       fi
+    fi
 
     ;;
-    *) echo -e '\e[33Unrecognized OS, some shell-features may not be available';;
+  *) echo -e '\e[33Unrecognized OS, some shell-features may not be available';;
 esac
 
 source $HOME/.bash_prompt
