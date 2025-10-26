@@ -12,7 +12,7 @@ augroup vimrc_reload
     autocmd BufWritePost $MYVIMRC source $MYVIMRC | set nomodified
 augroup end
 
-let mapleader=","
+let g:mapleader=","
 set number
 set tags=./tags,tags/;/
 " Tags from directory of current file, then current working directory
