@@ -48,11 +48,6 @@ export HISTTIMEFORMAT='%F %T '
 export HISTIGNORE="pwd;exit:date:* --help:man *"
 
 case $(uname -s) in
-    Linux)
-      source /etc/bash_completion
-      source /etc/bash_completion.d/git-prompt
-      source ~/.ext-lib/z-directory-jumper/z.sh
-    ;;
     Darwin)
       if [ -f /usr/local/share/bash-completion/bash_completion ]; then
           source /usr/local/share/bash-completion/bash_completion
