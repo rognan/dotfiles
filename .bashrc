@@ -24,10 +24,6 @@ export HISTTIMEFORMAT='%F %T '
 if (command -v brew &>/dev/null); then
   export HOMEBREW_NO_ANALYTICS=1
 
-  if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
-    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
-  fi
-
   if [ -f "$(brew --prefix z)/etc/profile.d/z.sh" ]; then
     source "$(brew --prefix z)/etc/profile.d/z.sh"
   fi
@@ -38,14 +34,17 @@ if (command -v asdf &>/dev/null); then
   source <(asdf completion bash)
 fi
 
-if command -v direnv &> /dev/null; then
+if (command -v direnv &>/dev/null); then
   eval "$(direnv hook bash)"
+fi
+
+if (command -v starship &>/dev/null); then
+  eval "$(starship init bash)"
 fi
 
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-source $HOME/.bash_prompt
 source $HOME/.functions
 source $HOME/.aliases
 source $HOME/.extra
