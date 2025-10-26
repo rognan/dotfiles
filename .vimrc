@@ -78,9 +78,6 @@ set list
 set noautowrite
 " Don't write buffer unless requested.
 
-set noautowriteall
-" Make VIM listen.
-
 set autoread
 " Automatically read in changes when a file changes on the filesystem.
 
