@@ -36,6 +36,9 @@ tab_title() {
   echo -n "$parent/$(basename "$PWD")"
 }
 
-GIT_PS1_SHOWDIRTYSTATE=true
+if command -v __git_ps1 &>/dev/null; then
+  export GIT_PS1_SHOWDIRTYSTATE=true
+fi
 
-PS1="\[\e]2;\u@\h:\w\a\]\[\e]1;\$(tab_title)\a\]${BOLD}${GREEN}\w ${PURPLE}\$(__git_ps1 \"%s\")${WHITE}\n\$$RESET "
+PS1='\[\e]2;\u@\h:\w\a\]\[\e]1;$(tab_title)\a\]${BOLD}${GREEN}\w ${PURPLE}$(if command -v __git_ps1 &>/dev/null; then __git_ps1 " (%s)"; fi)${WHITE}\n\$$RESET '
+
