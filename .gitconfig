@@ -49,6 +49,11 @@
     untracked = cyan bold
 
 [alias]
+    # Reset history to a single new root commit using the current file snapshot.
+    # This keeps the working tree intact and leaves the staging area clean.
+    # Requires a POSIX compliant shell.
+    start-fresh = !git reset $(git commit-tree HEAD^{tree} -m 'Initial commit')
+
     s = status -sb
 
     # List files ignored by git
@@ -63,7 +68,7 @@
     # Short readable log format with relative time.
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit
 
-    # Short(er)s readable log format without relative time.
+    # Short(er) readable log format without relative time.
     flog = log --graph --topo-order --decorate --oneline --first-parent
 
     # Count number of commits per participant.
